@@ -1,0 +1,1401 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fffdf5"><title>Sổ tay Vật lý · Vật lý đại cương</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}}</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" async></script>
+<style>
+:root{--bg:#fffdf5;--c:#00F2FE;--b:#4FACFE;--p:#8B5CF6;--t:#F3F6FF;--m:#9AA7C7;--g:rgba(255,255,255,.06);--bd:rgba(255,255,255,.13);--ok:#34D399;--no:#FB7185;--sa:max(14px,env(safe-area-inset-top,0px));--sb:max(14px,env(safe-area-inset-bottom,0px))}
+@media(prefers-color-scheme:light){:root{}}
+*{box-sizing:border-box;margin:0}html{scroll-padding-top:80px}body{background:var(--bg);color:var(--t);font:400 16px/1.7 'Be Vietnam Pro',system-ui,sans-serif;min-height:100vh;padding-top:env(safe-area-inset-top,0px);overflow-x:hidden}
+h1,h2,h3,h4,.hd{font-family:'Space Grotesk','Be Vietnam Pro',sans-serif;font-weight:700;line-height:1.25}
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none}.glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(600px 400px at 15% 0%,#4facfe33,transparent),radial-gradient(500px 400px at 100% 100%,#8b5cf633,transparent)}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:6px;align-items:center;padding:10px 18px;background:rgba(11,15,25,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);overflow-x:auto}
+nav b{font:700 18px 'Space Grotesk';margin-right:auto;white-space:nowrap;background:linear-gradient(90deg,var(--c),var(--b));-webkit-background-clip:text;color:transparent}
+nav button{background:none;border:1px solid transparent;color:var(--m);padding:8px 16px;border-radius:99px;font:600 14px 'Be Vietnam Pro';cursor:pointer;white-space:nowrap;transition:.25s}nav button:hover{color:#fff}nav button.on{color:#031022;background:linear-gradient(90deg,var(--c),var(--b));box-shadow:0 0 18px #00f2fe55}
+main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:28px 18px 120px}.pg{display:none}.pg.on{display:block;animation:fi .5s ease}@keyframes fi{from{opacity:0;transform:translateY(14px)}}
+.glass{background:var(--g);border:1px solid var(--bd);border-radius:20px;backdrop-filter:blur(12px);transition:transform .3s,box-shadow .3s,border-color .3s}.hov:hover{transform:translateY(-5px) scale(1.02);border-color:var(--c);box-shadow:0 0 30px #00f2fe44}
+.hero{text-align:center;padding:50px 10px 30px}.hero h1{font-size:clamp(34px,7vw,68px)}.hero h1 span{background:linear-gradient(90deg,var(--c),var(--b),var(--p));-webkit-background-clip:text;color:transparent}.hero .chip{display:inline-block}.hero p{color:var(--m);max-width:640px;margin:16px auto;font-size:18px}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0}.chip{padding:6px 16px;border-radius:99px;border:1px solid var(--bd);background:var(--g);font-size:14px;color:var(--c)}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.cta{padding:26px;cursor:pointer;text-align:left}.cta i{font-size:34px;font-style:normal}.cta h3{margin:8px 0 4px;font-size:20px}.cta p{color:var(--m);font-size:14px;line-height:1.5}
+.btn{background:linear-gradient(90deg,var(--c),var(--b));color:#031022;border:0;border-radius:12px;padding:11px 22px;font:700 15px 'Be Vietnam Pro';cursor:pointer;transition:.25s;box-shadow:0 0 20px #00f2fe44}.btn:hover{transform:translateY(-2px) scale(1.04)}.btn.gh{background:var(--g);color:#fff;border:1px solid var(--bd);box-shadow:none}
+h2.pt{font-size:clamp(26px,4vw,38px);margin-bottom:6px}.sub{color:var(--m);margin-bottom:18px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab{padding:9px 18px;border-radius:99px;background:var(--g);border:1px solid var(--bd);color:var(--m);font:600 14px 'Be Vietnam Pro';cursor:pointer;transition:.25s}.tab.on,.tab:hover{color:#031022;background:linear-gradient(90deg,var(--c),var(--b))}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}.tools input{flex:1;min-width:200px;background:var(--g);border:1px solid var(--bd);color:#fff;padding:11px 16px;border-radius:12px;font:15px 'Be Vietnam Pro'}.tools input:focus{outline:2px solid var(--c)}
+.acc{background:var(--g);border:1px solid var(--bd);border-radius:18px;margin-bottom:12px;transition:.3s;overflow:hidden}.acc:hover{border-color:#00f2fe88;box-shadow:0 0 22px #00f2fe22}.acc[open]{border-color:var(--c)}
+.acc summary{padding:16px 20px;cursor:pointer;font:700 18px 'Space Grotesk','Be Vietnam Pro';list-style:none;display:flex;gap:14px;align-items:center}.acc summary::-webkit-details-marker{display:none}.acc summary::after{content:'+';margin-left:auto;color:var(--c);font-size:26px;transition:.3s}.acc[open] summary::after{transform:rotate(45deg)}
+.num{flex:none;padding:3px 10px;border-radius:10px;background:linear-gradient(135deg,var(--b),var(--p));font-size:14px}
+.ac-b{padding:4px 22px 22px;font-size:17px;line-height:1.85}.ac-b ul{padding-left:22px}.ac-b li{margin:8px 0}.ac-b li ul{margin:4px 0}.ac-b h4.sh{margin:22px 0 6px;color:var(--c);font-size:19px}.ac-b blockquote{margin:10px 0;padding:10px 16px;border-left:4px solid var(--c);background:rgba(0,242,254,.07);border-radius:0 12px 12px 0;overflow-x:auto}.ac-b strong{color:#fff}.ac-b em{color:#cfe3ff}
+mjx-container{max-width:100%;overflow-x:auto;overflow-y:hidden}mjx-container[display=true]{margin:.9em 0!important;font-size:118%}
+.qz{max-width:780px;margin:0 auto}.pbar{height:10px;border-radius:99px;background:var(--g);overflow:hidden;margin:10px 0 18px}.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--c),var(--p));transition:width .5s}
+.q{padding:24px}.q h3{font-size:21px;margin-bottom:14px}.opt{display:block;width:100%;text-align:left;margin:10px 0;padding:14px 18px;border-radius:14px;background:var(--g);border:1px solid var(--bd);color:#fff;font:500 16px 'Be Vietnam Pro';cursor:pointer;transition:.25s}.opt:hover:not(:disabled){border-color:var(--c);transform:translateX(5px)}.opt.ok{background:rgba(52,211,153,.2);border-color:var(--ok)}.opt.no{background:rgba(251,113,133,.2);border-color:var(--no)}.ex{margin-top:12px;padding:12px 16px;border-radius:12px;background:rgba(0,242,254,.08);color:#dff}
+.gcard{overflow:hidden;cursor:pointer}.gth{height:150px;position:relative}.gth svg{width:100%;height:100%}.gb{padding:16px 18px 20px}.gb h3{font-size:19px}.gb p{color:var(--m);font-size:14px;line-height:1.5;margin:4px 0 10px}.tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;background:rgba(79,172,254,.2);color:var(--b)}
+.ov{position:fixed;inset:0;z-index:50;background:rgba(5,8,16,.82);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:16px;overflow:auto}.ov.on{display:flex;animation:fi .3s}.md{width:100%;max-width:560px;padding:28px;background:#121a2e;max-height:92vh;overflow:auto}.md.big{max-width:900px}.md h2{margin-bottom:10px}.md ul{padding-left:20px;color:#cdd8f5}.diff{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}.diff button{flex:1;min-width:110px;padding:12px;border-radius:12px;background:var(--g);border:1px solid var(--bd);color:#fff;font:700 15px 'Be Vietnam Pro';cursor:pointer;transition:.25s}.diff button.on,.diff button:hover{border-color:var(--c);background:rgba(0,242,254,.15);box-shadow:0 0 16px #00f2fe44}
+.x{float:right;background:none;border:0;color:var(--m);font-size:26px;cursor:pointer}
+.fcw{perspective:1000px;max-width:520px;margin:14px auto}.fc{height:260px;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1);cursor:pointer}.fc.flip{transform:rotateY(180deg)}.fc>div{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;border:1px solid var(--c);background:linear-gradient(145deg,rgba(0,242,254,.14),rgba(139,92,246,.14));box-shadow:0 0 30px #00f2fe33}.fc .bk{transform:rotateY(180deg);font-size:19px}.fc .ft{font:700 24px 'Space Grotesk','Be Vietnam Pro'}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:12px 0}.stat{text-align:center;color:var(--m);font-size:14px}.stat b{color:var(--c)}
+.sl{display:grid;grid-template-columns:140px 1fr 80px;gap:10px;align-items:center;margin:8px 0;font-size:14px}.sl input{accent-color:#00F2FE;width:100%}canvas.cv{width:100%;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--bd)}
+.door{padding:16px;margin:12px 0;border-radius:16px;border:1px solid var(--bd);background:var(--g)}.door.open{border-color:var(--ok);background:rgba(52,211,153,.1)}.door.lock{opacity:.4}.door input{width:130px;padding:9px 12px;border-radius:10px;border:1px solid var(--bd);background:#0b1224;color:#fff;font:16px 'Be Vietnam Pro'}
+.cw{display:flex;gap:10px;align-items:center;margin:10px 0;flex-wrap:wrap}.cw p{flex:1 1 280px;font-size:15px}.cell{width:34px;height:40px;text-align:center;text-transform:uppercase;border-radius:8px;border:1px solid var(--bd);background:#0b1224;color:#fff;font:700 18px 'Space Grotesk'}.cell.ok{border-color:var(--ok);background:rgba(52,211,153,.2)}.cell:focus{outline:2px solid var(--c)}
+#fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;width:62px;height:62px;border-radius:50%;border:0;font-size:28px;cursor:pointer;background:linear-gradient(135deg,var(--c),var(--p));box-shadow:0 0 28px #00f2fe88;animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px)}}
+#chat{position:fixed;right:18px;bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:40;width:min(400px,calc(100vw - 36px));height:min(560px,calc(100vh - 150px));display:none;flex-direction:column;background:#101830f2;overflow:hidden}#chat.on{display:flex;animation:fi .3s}.ch{padding:14px 16px;border-bottom:1px solid var(--bd);font:700 16px 'Space Grotesk'}.ch small{display:block;color:var(--m);font:400 12px 'Be Vietnam Pro'}.cm{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}.mg{max-width:88%;padding:10px 14px;border-radius:16px;font-size:14.5px;line-height:1.65;word-break:break-word}.mg.u{align-self:flex-end;background:linear-gradient(135deg,var(--b),var(--p))}.mg.a{align-self:flex-start;background:var(--g);border:1px solid var(--bd)}.cf{display:flex;gap:8px;padding:10px;border-top:1px solid var(--bd)}.cf input{flex:1;background:#0b1224;border:1px solid var(--bd);border-radius:12px;color:#fff;padding:10px 12px;font:14px 'Be Vietnam Pro'}
+#cf{position:fixed;inset:0;z-index:80;pointer-events:none}
+@media(max-width:640px){.sl{grid-template-columns:1fr 70px}.sl span:first-child{grid-column:1/-1}.ac-b{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><style>:root{--bg:#fffdf5;--ink:#1c2745;--c:#2457c5;--b:#3f7be0;--p:#c2410c;--t:#1c2745;--m:#5b6788;--g:#fff;--bd:#bccaec;--ok:#15803d;--no:#c62828;--hl:#ffe066}
+body{background-color:var(--bg);background-image:linear-gradient(rgba(60,110,200,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(60,110,200,.17) 1px,transparent 1px);background-size:26px 26px;background-attachment:fixed;color:var(--t)}
+body::before{content:"";position:fixed;left:max(12px,calc(50% - 590px));top:0;bottom:0;width:2px;background:rgba(214,60,60,.4);z-index:0;pointer-events:none}
+body::after{content:"";position:fixed;left:4px;top:0;bottom:0;width:22px;background:radial-gradient(circle,#efe9d6 6px,#a9a18a 7px,transparent 8px) 0 0/22px 140px repeat-y;z-index:0;pointer-events:none}
+@media(max-width:700px){body::after{display:none}}
+#bgc,.glow{display:none}
+h1,h2,h3,h4,.hd,.acc summary,nav b{font-family:'Patrick Hand','Be Vietnam Pro',cursive;font-weight:400;color:var(--ink)}
+h2.pt{font-size:clamp(30px,4.5vw,42px)}.cta h3,.gb h3{font-size:24px;font-weight:400}.q h3{font-family:'Be Vietnam Pro';font-size:18px;font-weight:600;line-height:1.6}
+.hero h1{font-size:clamp(40px,7vw,70px)}.hero h1 span{background:linear-gradient(transparent 58%,#ffe066 58%);-webkit-background-clip:border-box;background-clip:border-box;color:#c62828}
+nav{background:rgba(255,253,245,.94);border-bottom:2px solid var(--ink);backdrop-filter:none}
+nav b{font-size:24px;background:none;-webkit-background-clip:initial;color:var(--ink)}
+nav button{color:var(--m)}nav button:hover{color:var(--ink)}nav button.on{background:var(--hl);color:var(--ink);border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink);transform:rotate(-1.5deg)}
+.glass,.acc,.door,.opt,.diff button,.tab,.chip,.tools input{color:var(--ink)}
+.glass{background:#fff;border:1.5px solid var(--ink);border-radius:14px 18px 12px 16px;backdrop-filter:none;box-shadow:4px 4px 0 rgba(28,39,69,.16)}
+.hov:hover{transform:translate(-2px,-3px) rotate(-.6deg);border-color:var(--ink);box-shadow:7px 7px 0 rgba(28,39,69,.22)}
+.cta{position:relative}.cta::before{content:"";position:absolute;top:-11px;left:50%;width:78px;height:22px;margin-left:-39px;background:rgba(255,224,102,.75);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.grid>.cta:nth-child(even){transform:rotate(.7deg)}.grid>.cta:nth-child(odd){transform:rotate(-.6deg)}.hov.cta:hover{transform:translate(-2px,-3px) rotate(0)}
+.chip{background:#fff;color:var(--c);border:1.5px dashed var(--c)}.hero p,.sub{color:var(--m)}
+.btn{background:var(--c);color:#fff;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}.btn:hover{transform:translate(-1px,-2px);box-shadow:5px 5px 0 var(--ink)}.btn.gh{background:#fff;color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.tab,.diff button{background:#fff;border:1.5px solid var(--bd)}.tab.on,.tab:hover,.diff button.on,.diff button:hover{background:var(--hl);color:var(--ink);border-color:var(--ink);box-shadow:none}
+.tools input,.cf input,.door input,.cell{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.acc{background:#fff;border:1.5px solid var(--bd)}.acc:hover,.acc[open]{border-color:var(--ink);box-shadow:3px 3px 0 rgba(28,39,69,.15)}
+.acc summary{font-size:22px}.acc summary::after{color:#c62828}.num{background:var(--hl);color:var(--ink);border:1.5px solid var(--ink);font:700 15px 'Be Vietnam Pro'}
+.ac-b strong{color:var(--ink);background:linear-gradient(transparent 62%,#fff0a6 62%)}.ac-b em{color:var(--p)}.ac-b h4.sh{color:#c62828;font-size:22px;text-decoration:underline wavy rgba(198,40,40,.35);text-underline-offset:5px}
+.ac-b blockquote{background:#fff8d6;border-left:4px solid #e0a800;color:var(--ink)}
+.opt{background:#fff;border:1.5px solid var(--bd);color:var(--ink)}.opt:hover:not(:disabled){border-color:var(--ink);background:#f5f8ff}.opt.ok{background:#dcfce7;border-color:var(--ok)}.opt.no{background:#fee2e2;border-color:var(--no)}.opt.sel{background:#dbe7ff;border-color:var(--c)}
+.ex{background:#fff8d6;color:var(--ink);border-left:4px solid #e0a800}.tag{background:#e0ecff;color:var(--c)}.stat b{color:var(--c)}.pbar{background:#e3e9f7}.pbar i{background:linear-gradient(90deg,var(--b),#f59e0b)}
+.gth{border-bottom:1.5px solid var(--ink)}.ov{background:rgba(28,39,69,.45);backdrop-filter:none}.md{background:var(--bg)!important}.md ul{color:var(--ink)}.x{color:var(--ink)}
+.fc>div{background:#fff9db;color:var(--ink);border:2px solid var(--ink);box-shadow:5px 5px 0 rgba(28,39,69,.2)}
+.door{background:#fff;border:1.5px solid var(--bd)}.door.open{background:#dcfce7}.cell.ok{background:#dcfce7;border-color:var(--ok)}
+canvas.cv{background:#17332d;border:5px solid #b98b52;border-radius:12px}.sl input{accent-color:#2457c5}
+#fab{background:var(--hl);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}#chat{background:#fffdf5!important}.mg.a{background:#fff;color:var(--ink)}.mg.u{color:#fff}.ch{border-color:var(--bd)}
+mjx-container{color:var(--ink)}
+.doodles{max-width:900px;margin:8px auto 26px}.doodles svg{width:100%;height:auto}svg text{font-family:'Patrick Hand',cursive;font-size:16px;fill:var(--ink)}
+.steps{background:#fffbe6;border:1.5px dashed #c9a400;border-radius:12px;padding:12px 18px;margin-top:14px}.steps>b{font:700 19px 'Patrick Hand';color:#c62828}.steps ol{list-style:none;counter-reset:s;padding:0}.steps li{counter-increment:s;margin:8px 0;line-height:1.75}.steps li::before{content:"Bước " counter(s) " · ";font:700 17px 'Patrick Hand';color:#c62828}
+.tipx{margin-top:8px;color:#9a3412;font-size:14.5px}.fig svg{max-width:300px;width:100%;display:block;margin:10px auto;background:#fff;border:1.5px solid var(--bd);border-radius:10px}
+.tm{display:inline-block;padding:2px 14px;border:2px solid #c62828;color:#c62828;border-radius:99px;font:700 19px 'Patrick Hand';background:#fff}.tm.low{animation:bl .8s infinite}@keyframes bl{50%{background:#fee2e2}}
+.qn{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.qn button{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--bd);background:#fff;font:700 14px 'Be Vietnam Pro';cursor:pointer;color:var(--ink)}.qn .dn{background:#dbe7ff;border-color:var(--c)}.qn .cu{outline:3px solid #ffbf00}
+.es textarea{width:100%;min-height:120px;margin:8px 0;background:repeating-linear-gradient(#fff,#fff 27px,#d6e0f5 28px);border:1.5px solid var(--ink);border-radius:10px;padding:2px 12px;font:21px/22px 'Patrick Hand';color:var(--ink)}.es input[type=text]{width:140px;padding:8px 12px;border:1.5px solid var(--ink);border-radius:10px;font:16px 'Be Vietnam Pro'}
+.rv{margin:14px 0}.rv summary{cursor:pointer;font-weight:600;padding:10px 0}.bad{color:var(--no)}.good{color:var(--ok)}
+.sn{display:block;padding:18px;margin:6px 0;color:var(--ink);text-decoration:none;background:#fff8c9;box-shadow:3px 4px 0 rgba(0,0,0,.15);transform:rotate(-1deg);font-size:14.5px;line-height:1.5}.sn:nth-child(even){background:#dff3ff;transform:rotate(1deg)}.sn b{display:block;font:700 21px 'Patrick Hand'}.sn:hover{transform:rotate(0) scale(1.03)}
+</style></head><body>
+<canvas id="bgc"></canvas><div class="glow"></div><canvas id="cf"></canvas>
+<nav><b>⚛ Quantum Lab</b><button data-p="home" class="on">Trang chủ</button><button data-p="theory">Lý thuyết</button><button data-p="exam">Đề thi</button><button data-p="games">Trò chơi</button></nav>
+<main>
+<section class="pg on" id="home"><div class="hero"><div class="chip">Vật lý đại cương · Vật lý lý sinh</div><h1>Học Vật lý như <span>chơi game</span></h1><p>Ôn thi bằng đúng tài liệu của lớp: lý thuyết, đề thi, 4 trò chơi và một "Physics Bro" luôn sẵn sàng giải thích.</p><div class="row"><button class="btn" data-go="theory">Vào học ngay</button><button class="btn gh" data-go="games">Chơi game</button></div>
+<div class="chips"><span class="chip">\(N(t)=N_0\,2^{-t/T}\)</span><span class="chip">\(n_1\sin i_1=n_2\sin i_2\)</span><span class="chip">\(F\cdot L_F=P\cdot L_P\)</span></div></div>
+<div class="grid"><div class="glass hov cta" data-go="theory"><i>📚</i><h3>Lý thuyết &amp; Ôn tập</h3><p>12 thẻ nội dung lấy nguyên văn từ tài liệu, công thức render chuẩn.</p></div><div class="glass hov cta" data-go="exam"><i>📝</i><h3>Đề thi trắc nghiệm</h3><p>10 câu có thanh tiến độ, chấm màu tức thì và pháo giấy khi nộp bài.</p></div><div class="glass hov cta" data-go="games"><i>🎮</i><h3>Khu trò chơi</h3><p>Flash Card 3D, Physics Lab, Escape Room, Ô chữ — chọn độ khó trước khi chơi.</p></div><div class="glass hov cta" id="openchat"><i>🤖</i><h3>GenZ Physics Bro</h3><p>Hỏi gì cũng được: giải thích đời thường trước, học thuật chính xác sau.</p></div></div></section>
+<section class="pg" id="theory"><h2 class="pt">Lý thuyết &amp; Ôn tập</h2><p class="sub">Nội dung lấy từ hai tài liệu của bạn. Bấm thẻ để mở.</p><div class="tabs" id="tabs"><button class="tab on" data-g="core">Lý thuyết cốt lõi</button><button class="tab" data-g="tips">Mẹo &amp; Dạng bài</button><button class="tab" data-g="bt">Câu hỏi &amp; Bài tập</button><button class="tab" data-g="de">Đề giữa kỳ &amp; Đáp án</button></div><div class="tools"><input id="q" placeholder="🔍 Tìm trong lý thuyết..."><button class="btn gh" id="all">Mở / thu gọn tất cả</button></div><div id="acc"><details class="acc" data-g="core"><summary><span class="num">01</span>Mục 1: Quang sinh học &amp; Quang hình học</summary><div class="ac-b">
+<h4 class="sh">Các định luật cơ bản của Quang hình học:</h4>
+<ul>
+<li><blockquote>
+<p><em>Định luật truyền thẳng</em>: Trong môi trường trong suốt, đồng tính và đẳng hướng, ánh sáng truyền đi theo đường thẳng.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Định luật tác dụng độc lập</em>: Tác dụng của các chùm tia sáng khác nhau xảy ra độc lập và không làm thay đổi lẫn nhau.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Định luật phản xạ và khúc xạ ánh sáng</em>: Tia phản xạ và tia khúc xạ nằm trong mặt phẳng tới. Góc phản xạ bằng góc tới (<span class="math inline">\(i = i&#39;\)</span>). Tỉ số giữa sin góc tới và sin góc khúc xạ là đại lượng không đổi đối với hai môi trường xác định:</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(\frac{\sin i_{1}}{\sin i_{2}} = n_{21} = \frac{n_{2}}{n_{1}}\text{ hoặc }n_{1}\sin i_{1} = n_{2}\sin i_{2}\)</span></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Chiết suất tuyệt đối của môi trường là <span class="math inline">\(n = \frac{c}{v}\)</span> (với <span class="math inline">\(c = 3 \cdot 10^{8}m/s\)</span>). Nếu <span class="math inline">\(n_{2} &gt; n_{1}\)</span>, môi trường 2 chiết quang hơn môi trường 1 (<span class="math inline">\(i_{2} &lt; i_{1}\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Hiện tượng phản xạ toàn phần</em>: Khi ánh sáng truyền từ môi trường chiết quang hơn (<span class="math inline">\(n_{1}\)</span>) sang môi trường kém chiết quang (<span class="math inline">\(n_{2} &lt; n_{1}\)</span>), với góc tới <span class="math inline">\(i \geq i_{gh}\)</span> (trong đó <span class="math inline">\(\sin i_{gh} = \frac{n_{2}}{n_{1}}\)</span>), toàn bộ ánh sáng bị phản xạ trở lại môi trường cũ mà không có tia khúc xạ.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Ứng dụng Y học</em>: Hiện tượng phản xạ toàn phần được ứng dụng trực tiếp trong kỹ thuật chế tạo sợi quang dùng cho <strong>mổ nội soi</strong> và chẩn đoán nội soi tổn thương cơ quan bên trong.</p>
+</blockquote></li>
+</ul>
+<p><strong>Thấu kính &amp; Sự tạo ảnh</strong>:</p>
+<ul>
+<li><blockquote>
+<p>Thấu kính hội tụ (rìa mỏng, độ tụ <span class="math inline">\(D &gt; 0\)</span>) và thấu kính phân kỳ (rìa dày, độ tụ <span class="math inline">\(D &lt; 0\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Công thức thấu kính:</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(\frac{1}{f} = \frac{1}{s&#39;} - \frac{1}{s} = (n - 1)\left( \frac{1}{R_{1}} - \frac{1}{R_{2}} \right)\)</span></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Độ tụ <span class="math inline">\(D = \frac{1}{f}\)</span> (đơn vị Điốp - D, với <span class="math inline">\(f\)</span> tính bằng mét).</p>
+</blockquote></li>
+</ul>
+<p><strong>Quang hình học của mắt &amp; Năng suất phân ly</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Cấu tạo quang hình học</em>: Mắt gồm Giác mạc (màng cứng trong suốt khúc xạ ánh sáng), Thủy dịch (<span class="math inline">\(n \approx 1,33\)</span>), Con ngươi (lỗ tròn điều chỉnh lượng sáng), Thủy tinh thể (thấu kính hội tụ đặc thạch có tiêu cự <span class="math inline">\(f\)</span> thay đổi được), Dịch thủy tinh (<span class="math inline">\(n \approx 1,33\)</span>) và Võng mạc (màn ảnh nhạy sáng chứa tế bào hình que và tế bào hình nón). Khoảng cách từ quang tâm thủy tinh thể đến võng mạc cố định <span class="math inline">\(OV \approx 2,2cm\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Sự điều tiết và giới hạn nhìn rõ</em>: Sự điều tiết là sự thay đổi độ cong của thủy tinh thể để ảnh hiện rõ trên võng mạc. Nhìn vật ở gần: cơ vòng căng, thủy tinh thể phồng to (<span class="math inline">\(f\)</span> giảm, độ tụ <span class="math inline">\(D\)</span> tăng); Nhìn vật ở xa: cơ vòng thả lỏng, thủy tinh thể dẹt lại (<span class="math inline">\(f\)</span> tăng). Điểm cực cận (<span class="math inline">\(C_{c}\)</span>) là điểm gần nhất mắt nhìn rõ khi điều tiết tối đa; Điểm cực viễn (<span class="math inline">\(C_{v}\)</span>) là điểm xa nhất nhìn rõ khi không điều tiết. Mắt bình thường có <span class="math inline">\(C_{v}\)</span> ở vô cực và <span class="math inline">\(C_{c}\)</span> từ 10 - 25 cm.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Năng suất phân ly</em>: Góc trông nhỏ nhất <span class="math inline">\(\alpha_{\min}\)</span> giữa hai điểm mà mắt còn phân biệt được hai ảnh riêng biệt trên hai tế bào thụ cảm ánh sáng kế tiếp trên võng mạc:</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(\alpha_{\min} \approx 1&#39; \approx \frac{1}{3500}rad\)</span></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Các tật của mắt và cách khắc phục</em>:</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><strong>Cận thị</strong>: Khi không điều tiết, tiêu điểm <span class="math inline">\(F&#39;\)</span> nằm trước võng mạc (<span class="math inline">\(f_{\max} &lt; OV\)</span>); <span class="math inline">\(C_{v}\)</span> ở khoảng hữu hạn trước mắt. Khắc phục: Đeo thấu kính phân kỳ có độ tụ <span class="math inline">\(D_{k} = - \frac{1}{OC_{v}}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Viễn thị</strong>: Khi không điều tiết, tiêu điểm <span class="math inline">\(F&#39;\)</span> nằm sau võng mạc (<span class="math inline">\(f_{\max} &gt; OV\)</span>); nhìn vật ở vô cực đã phải điều tiết. Khắc phục: Đeo thấu kính hội tụ.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Lão thị</strong>: Xảy ra ở người lớn tuổi do cơ vòng suy giảm làm khả năng điều tiết kém, điểm <span class="math inline">\(C_{c}\)</span> dời ra xa. Khắc phục: Đeo thấu kính hội tụ để đọc sách/nhìn gần.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Loạn thị</strong>: Do sự bất cân đối về độ cong của bề mặt giác mạc.</p>
+</blockquote></li>
+</ul>
+<p><strong>Quang sinh học &amp; Lý sinh thị giác</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Các nhóm quá trình quang sinh</em>: Quang tổng hợp (quang hợp gluxit, tổng hợp sắc tố), Cảm nhận ánh sáng (thị giác ở động vật, tính hướng sáng ở thực vật) và Phá hủy cấu trúc sinh học (khi hấp thụ tia tử ngoại).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tế bào thụ cảm ánh sáng</em>:</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><strong>Tế bào hình que</strong>: Khoảng 130 triệu tế bào, phân bố xa điểm vàng, chứa sắc tố Rodopsin (Scotopsin + 11-cis-retinal), nhạy cảm với ánh sáng yếu (sáng - tối), đỉnh hấp thụ tại <span class="math inline">\(510nm\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Tế bào hình nón</strong>: Khoảng 7 triệu tế bào, tập trung ở điểm vàng, chứa Iodopsin (Photopsin + 11-cis-retinal), nhạy cảm với ánh sáng mạnh và cảm nhận màu sắc.</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><em>Chu trình Rodopsin</em>: Chiếu sáng làm phân hủy Rodopsin <span class="math inline">\(\rightarrow\)</span> Lumirodopsin <span class="math inline">\(\rightarrow\)</span> Metarodopsin I, II <span class="math inline">\(\rightarrow\)</span> Opxin + trans-retinal, giải phóng điện thế phát động truyền xung thần kinh thị giác lên não. Trong bóng tối, trans-retinal chuyển lại thành 11-cis-retinal nhờ enzyme và năng lượng hóa sinh để tái tạo Rodopsin.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Thị giác màu (Thuyết 3 thành phần Lômôlôxốp)</em>: Có 3 loại tế bào nón hấp thụ 3 vùng bước sóng khác nhau: Đỏ (<span class="math inline">\(580 - 650nm\)</span>), Lục (<span class="math inline">\(530 - 550nm\)</span>) và Lam (<span class="math inline">\(420 - 450nm\)</span>).</p>
+</blockquote></li>
+</ul>
+<p><strong>Quang phổ hấp thụ, Phân cực, Nhiễu xạ &amp; Giao thoa</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Định luật Bouguer - Lambert - Beer</em>: Khi ánh sáng đơn sắc truyền qua dung dịch có nồng độ <span class="math inline">\(C\)</span> và bề dày <span class="math inline">\(l\)</span>:</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(I = I_{0} \cdot 10^{- aCl}\)</span></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Mật độ quang</em>: <span class="math inline">\(D = \lg\left( \frac{I_{0}}{I} \right) = aCl\)</span>, đặc trưng cho khả năng hấp thụ ánh sáng của chất. Phổ hấp thụ <span class="math inline">\(D = f(\lambda)\)</span> có cực đại <span class="math inline">\(\lambda_{\max}\)</span> đặc trưng cho định tính và định lượng chất trong y học (Protein có <span class="math inline">\(\lambda_{\max} = 280nm\)</span>, Axit Nucleic có <span class="math inline">\(\lambda_{\max} = 260nm\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Phân cực ánh sáng</em>: Định luật Malus cho chùm sáng tự nhiên qua kính phân cực và kính phân tích: <span class="math inline">\(I_{2} = I_{1}\cos^{2}\alpha\)</span>. Định lý Biot cho dung dịch quang hoạt quay mặt phẳng phân cực: <span class="math inline">\(R = \lbrack\alpha\rbrack LC\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Giao thoa &amp; Nhiễu xạ</em>: Thí nghiệm giao thoa khe Young cho hệ vân sáng <span class="math inline">\(x_{s} = k\frac{\lambda D}{a}\)</span> và vân tối <span class="math inline">\(x_{t} = (k + 0,5)\frac{\lambda D}{a}\)</span>. Nhiễu xạ qua lỗ tròn theo đới cầu Fresnel tạo điểm sáng/tối tùy thuộc số đới cầu chứa trong lỗ là lẻ hay chẵn.</p>
+</blockquote></li>
+</ul>
+</div></details><details class="acc" data-g="core"><summary><span class="num">02</span>Mục 2: Điện sinh học &amp; Điện học cơ bản</summary><div class="ac-b">
+<h4 class="sh">Vận chuyển chất qua màng tế bào:</h4>
+<ul>
+<li><blockquote>
+<p>Tế bào là một hệ nhiệt động mở, bao bọc bởi màng bán thấm. Sự vận chuyển chất tuân theo các loại Gradient: Gradient nồng độ, thẩm thấu, màng, độ hòa tan và gradient điện hóa.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Vận chuyển thụ động</em>: Vận chuyển theo chiều gradient, không tiêu tốn ATP. Gồm:</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Khuếch tán đơn giản: Nước, chất hòa tan phân tử nhỏ di chuyển qua màng.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Khuếch tán liên hợp: Cơ chất (glucose, glycerin, acid amin) gắn vào phân tử chất mang để đi qua màng.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Khuếch tán trao đổi: Phân tử chất mang thực hiện vận chuyển vòng khép kín giữa trong và ngoài màng.</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><em>Vận chuyển tích cực</em>: Vận chuyển ngược chiều gradient nồng độ hoặc điện hóa, bắt buộc có chất mang và tiêu tốn năng lượng ATP. Gồm:</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Chuyển dịch nhóm: Cơ chất bị biến đổi tạo liên kết đồng hóa trị mới khi qua màng.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Vận chuyển tích cực tiên phát: Năng lượng ATP làm biến đổi hình dạng chất mang (ví dụ: bơm <span class="math inline">\(Na^{+}/K^{+}\)</span>-ATPase).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Vận chuyển tích cực thứ phát: Sự tích tụ ion tiên phát tạo động lực kéo theo chất thứ phát.</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><em>Thực bào và ẩm bào</em>: Màng tế bào lõm/lồi bao lấy hạt đại phân tử (thực bào) hoặc giọt dịch hòa tan (ẩm bào) đưa vào trong tế bào, có chọn lọc và tốn ATP.</p>
+</blockquote></li>
+</ul>
+<p><strong>Công điện &amp; Điện thế màng tế bào</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Công điện trong cơ thể</em>: Công vận chuyển các ion mang điện trong điện trường màng tế bào, duy trì sự chênh lệch nồng độ ion (<span class="math inline">\(Na^{+},K^{+},Cl^{-}\)</span>) tạo ra điện thế nghỉ và điện thế hoạt động.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Điện thế hoạt động</em>: Sự biến đổi đột ngột điện thế màng khi bị kích thích, tạo xung động điện sinh học dẫn truyền trong tế bào thần kinh và sợi cơ.</p>
+</blockquote></li>
+</ul>
+<p><strong>Cơ sở Điện học cơ bản</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Định luật Coulomb</em>: Lực tương tác tĩnh điện giữa hai điện tích điểm đứng yên:</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(F = \frac{1}{4\pi\epsilon\epsilon_{0}}\frac{|q_{1}q_{2}|}{r^{2}} = k\frac{|q_{1}q_{2}|}{\epsilon r^{2}}\)</span></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Cường độ điện trường</em>: Vectơ <span class="math inline">\(\overrightarrow{E} = \frac{\overrightarrow{F}}{q_{0}}\)</span>. Điện trường điện tích điểm: <span class="math inline">\(E = \frac{k|q|}{\epsilon r^{2}}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Điện thế &amp; Hiệu điện thế</em>: Thế năng tĩnh điện <span class="math inline">\(W = \frac{kqq_{0}}{\epsilon r}\)</span>. Điện thế <span class="math inline">\(V = \frac{W}{q_{0}} = \frac{kq}{\epsilon r}\)</span>. Hiệu điện thế giữa hai bản kim loại song song mang điện trái dấu: <span class="math inline">\(U = E \cdot d\)</span>.</p>
+</blockquote></li>
+</ul>
+<p><strong>Ứng dụng Điện trường trong Y học (Kỹ thuật Điện di - Electrophoresis)</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Nguyên lý</em>: Đặt các phân tử sinh học mang điện tích (DNA, RNA, Protein) vào môi trường Gel (Agarose) và áp một điện thế một chiều (<span class="math inline">\(DC\)</span>) để tạo điện trường đều.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Cơ chế phân tách</em>: Phân tử DNA/RNA có nhóm phosphate mang điện tích âm toàn phần. Dưới tác dụng của lực điện trường, DNA/RNA di chuyển từ cực âm sang cực dương. Mạng lưới gel agarose đóng vai trò như một chiếc sàng cơ học: các phân tử có kích thước nhỏ di chuyển nhanh và xa hơn, các phân tử lớn di chuyển chậm và gần hơn. Kết quả giúp phân tách và xác định kích thước các đoạn DNA/RNA trong chẩn đoán RT-PCR sinh học phân tử.</p>
+</blockquote></li>
+</ul>
+</div></details><details class="acc" data-g="core"><summary><span class="num">03</span>Mục 3: Vật lý Hạt nhân trong Y học</summary><div class="ac-b">
+<h4 class="sh">Cấu tạo Hạt nhân &amp; Năng lượng liên kết:</h4>
+<ul>
+<li><blockquote>
+<p>Hạt nhân cấu tạo từ <span class="math inline">\(Z\)</span> proton (mang điện tích <span class="math inline">\(+ e\)</span>) và <span class="math inline">\(N\)</span> neutron (không mang điện) (<span class="math inline">\(A = Z + N\)</span> nucleon).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Kích thước hạt nhân cỡ Femtomet (<span class="math inline">\(1fm = 10^{- 15}m\)</span>), bán kính hạt nhân:</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(R = r_{0}A^{1/3}(\text{với } r_{0} \approx 1,2 \div 1,5fm)\)</span></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Độ hụt khối</em>: <span class="math inline">\(\Delta M = (Zm_{p} + Nm_{n}) - M_{hn} &gt; 0\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Năng lượng liên kết</em>: <span class="math inline">\(\Delta E = \Delta M \cdot c^{2}\)</span> (với <span class="math inline">\(1u \approx 931,5MeV/c^{2}\)</span>). Năng lượng liên kết riêng <span class="math inline">\(\epsilon = \frac{\Delta E}{A}\)</span> đặc trưng cho độ bền vững của hạt nhân.</p>
+</blockquote></li>
+</ul>
+<p><strong>Định luật Phân rã phóng xạ &amp; Các loại bức xạ</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Định luật phân rã phóng xạ</em>:</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><span class="math inline">\(N(t) = N_{0}e^{- \lambda t} = N_{0}2^{- t/T}\)</span></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Chu kỳ bán rã (</em><span class="math inline">\(T\)</span><em>)</em>: <span class="math inline">\(T = \frac{\ln 2}{\lambda} = \frac{0,693}{\lambda}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Độ phóng xạ (</em><span class="math inline">\(H\)</span><em>)</em>: Số hạt nhân phân rã trong một đơn vị thời gian: <span class="math inline">\(H(t) = \lambda N(t) = H_{0}e^{- \lambda t}\)</span>. Đơn vị SI: Becquerel (<span class="math inline">\(1Bq = 1\text{ phân rã}/s\)</span>); Curie (<span class="math inline">\(1Ci = 3,7 \cdot 10^{10}Bq\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Các dạng phân rã</em>:</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><strong>Phân rã Alpha (</strong><span class="math inline">\(\alpha\)</span><strong>)</strong>: Phóng ra hạt nhân <span class="math inline">\({}_{2}^{4}He\)</span>, xảy ra ở hạt nhân nặng (<span class="math inline">\(Z &gt; 83\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Phân rã Beta âm (</strong><span class="math inline">\(\beta^{-}\)</span><strong>)</strong>: \({}<em>Z^A X \rightarrow {}</em>{Z+1}^A Y + {}_{-1}^0 e + \bar{\nu}\) (neutron chuyển thành proton + electron + phản neutrino).</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Phân rã Beta dương (</strong><span class="math inline">\(\beta^{+}\)</span><strong>)</strong>: \({}<em>Z^A X \rightarrow {}</em>{Z-1}^A Y + {}_{+1}^0 e + \nu\) (proton chuyển thành neutron + positron + neutrino).</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Phân rã Gamma (</strong><span class="math inline">\(\gamma\)</span><strong>)</strong>: Bức xạ sóng điện từ năng lượng cao khi hạt nhân con chuyển từ trạng thái kích thích về trạng thái cơ bản, không thay đổi số khối <span class="math inline">\(A\)</span> và số điện tích <span class="math inline">\(Z\)</span>.</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Tia <span class="math inline">\(\alpha,\beta^{+}\)</span> lệch về phía cực âm, tia <span class="math inline">\(\beta^{-}\)</span> lệch về cực dương, tia <span class="math inline">\(\gamma\)</span> truyền thẳng trong điện trường. Khả năng đâm xuyên: <span class="math inline">\(\alpha &lt; \beta &lt; \gamma\)</span>.</p>
+</blockquote></li>
+</ul>
+<p><strong>Tương tác của Bức xạ ion hóa với Vật chất</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Bức xạ ion hóa</em>: Bao gồm chùm hạt mang điện (<span class="math inline">\(\alpha,\beta,e^{-}\)</span>), chùm hạt không mang điện (neutron) và sóng điện từ năng lượng cao (tia X, tia Gamma).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Hiệu ứng Quang điện</em>: Photon bức xạ tác động lên electron lớp trong cùng (lớp K), truyền toàn bộ năng lượng giải phóng electron (xảy ra ở dải năng lượng <span class="math inline">\(0,01 - 0,1MeV\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Hiệu ứng Compton</em>: Photon bức xạ tác động lên electron lớp ngoài cùng, truyền một phần năng lượng và bị tán xạ với bước sóng lớn hơn (xảy ra ở dải năng lượng <span class="math inline">\(0,1 - 10MeV\)</span>).</p>
+</blockquote></li>
+</ul>
+<p><strong>Liều lượng bức xạ &amp; Dược chất phóng xạ Y học</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Liều hấp thụ (</em><span class="math inline">\(D\)</span><em>)</em>: Năng lượng bức xạ hấp thụ trên một đơn vị khối lượng mô: <span class="math inline">\(1Gy = 1J/kg = 100rad\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Liều tương đương (</em><span class="math inline">\(H\)</span><em>)</em>: <span class="math inline">\(H = D \cdot W_{R}\)</span> (<span class="math inline">\(W_{R}\)</span> là trọng số bức xạ), đơn vị Sievert (Sv).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Liều hiệu dụng (</em><span class="math inline">\(E\)</span><em>)</em>: <span class="math inline">\(E = H \cdot W_{T}\)</span> (<span class="math inline">\(W_{T}\)</span> là trọng số mô), đơn vị Sievert (Sv).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Ứng dụng y học</em>: Sử dụng dược chất phóng xạ (như <span class="math inline">\({}^{40}K\)</span>, <span class="math inline">\({}^{22}Na\)</span>, <span class="math inline">\({}^{131}I\)</span>) trong chẩn đoán chức năng cơ quan và điều trị ung thư. Máy X-quang và CT-scan dùng tia X tạo ảnh giải phẫu.</p>
+</blockquote></li>
+</ul>
+</div></details><details class="acc" data-g="core"><summary><span class="num">04</span>Mục 4: Cơ học &amp; Hệ Xương Khớp dưới góc độ Đòn bẩy</summary><div class="ac-b">
+<h4 class="sh">Động lực học &amp; Moment lực:</h4>
+<ul>
+<li><blockquote>
+<p><em>Các định luật Newton</em>: Định luật I (quán tính), Định luật II (<span class="math inline">\(\overrightarrow{F} = m\overrightarrow{a}\)</span>), Định luật III (tác lực và phản lực \(\vec{F}<em>{12} = -\vec{F}</em>{21}\)).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Moment lực đối với trục quay</em>: <span class="math inline">\(M = F \cdot d\)</span>, với <span class="math inline">\(d\)</span> là cánh tay đòn (khoảng cách từ trục quay đến giá của lực).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Điều kiện cân bằng của vật rắn</em>: Cân bằng tịnh tiến (<span class="math inline">\(\overrightarrow{F} = 0\)</span>) và Cân bằng quay (<span class="math inline">\(\overrightarrow{M} = 0\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Cân bằng cơ thể</em>: Trọng tâm cơ thể (c.g.) nằm ở khoảng 56% chiều cao. Cơ thể cân bằng vững vàng khi đường kéo dài của trọng lực <span class="math inline">\(\overrightarrow{P}\)</span> đi qua mặt chân đế (tạo bởi hai bàn chân). Khi xách vật nặng một bên tay, cơ thể nghiêng sang bên đối diện và dang tay để giữ giá trọng lực trong mặt chân đế.</p>
+</blockquote></li>
+</ul>
+<p><strong>Hệ Xương Khớp &amp; 3 Loại Đòn Bẩy trong Cơ thể</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Cấu trúc đòn bẩy sinh học</em>:</p>
+</blockquote></li>
+<li><blockquote>
+<p>Điểm tựa (<span class="math inline">\(T\)</span>): Các khớp xương.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Lực phát động (<span class="math inline">\(F\)</span>): Lực co của các cơ bắp.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Lực cản (<span class="math inline">\(P\)</span>): Trọng lượng phần cơ thể cần di chuyển hoặc vật nặng cầm trên tay.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Cánh tay đòn: Các đoạn xương (<span class="math inline">\(L_{F},L_{P}\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Phương trình cân bằng đòn bẩy: \[F \cdot L_F = P \cdot L_P \iff \frac{L_F}{L_P} = \frac{P}{F} \quad\]</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p><em>Phân loại và Ứng dụng trong Y sinh</em>:</p>
+</blockquote>
+<p><strong>Đòn bẩy loại I (Điểm tựa</strong> <span class="math inline">\(T\)</span> <strong>nằm giữa</strong> <span class="math inline">\(P\)</span> <strong>và</strong> <span class="math inline">\(F\)</span><strong>)</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Cấu trúc</em>: Điểm tựa ở giữa.</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><em>Ứng dụng</em>: <strong>Cân bằng đầu trên cột sống</strong>. Điểm tựa <span class="math inline">\(T\)</span> là khớp chẩm - đội (lồi cầu xương chẩm và đốt sống cổ C1); Lực cản <span class="math inline">\(P\)</span> là trọng lượng đầu có xu hướng gục về trước; Lực phát động <span class="math inline">\(F\)</span> do cơ gáy co kéo.</p>
+</blockquote></li>
+</ul>
+<p><strong>Đòn bẩy loại II (Lực cản</strong> <span class="math inline">\(P\)</span> <strong>nằm giữa</strong> <span class="math inline">\(T\)</span> <strong>và</strong> <span class="math inline">\(F\)</span><strong>)</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Cấu trúc</em>: Lực cản ở giữa.</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><em>Ứng dụng</em>: <strong>Động tác kiễng chân</strong>. Điểm tựa <span class="math inline">\(T\)</span> ở đầu mút xương bàn chân tiếp xúc mặt đất; Lực cản <span class="math inline">\(P\)</span> là trọng lượng cơ thể đè xuống qua xương cẳng chân; Lực phát động <span class="math inline">\(F\)</span> do cơ dép và cơ sinh đôi kéo gân Asin bám vào xương gót. Vì <span class="math inline">\(L_{F} &gt; L_{P}\)</span> nên được gọi là <em>đòn bẩy sức mạnh</em> (nâng được tải trọng cơ thể rất lớn).</p>
+</blockquote></li>
+</ul>
+<p><strong>Đòn bẩy loại III (Lực phát động</strong> <span class="math inline">\(F\)</span> <strong>nằm giữa</strong> <span class="math inline">\(T\)</span> <strong>và</strong> <span class="math inline">\(P\)</span><strong>)</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Cấu trúc</em>: Lực phát động ở giữa.</p>
+</blockquote></li>
+</ul>
+<ul>
+<li><blockquote>
+<p><em>Ứng dụng</em>: <strong>Khớp khuỷu tay (cẳng tay)</strong>. Điểm tựa <span class="math inline">\(T\)</span> tại khớp khuỷu; Lực phát động <span class="math inline">\(F\)</span> do cơ nhị đầu bám vào điểm trên xương cẳng tay; Lực cản <span class="math inline">\(P\)</span> là trọng lượng cẳng tay, bàn tay và vật nặng. Vì <span class="math inline">\(L_{F} &lt; L_{P}\)</span> nên lực co cơ phải lớn hơn lực cản, nhưng giúp di chuyển vật nhanh với biên độ rộng (<em>đòn bẩy tốc độ</em>).</p>
+</blockquote></li>
+</ul>
+<p><strong>Phân tích Ca lâm sàng Y sinh (Gãy rút lồi củ trước xương chày)</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Bệnh cảnh</em>: Bệnh nhân nam 65 kg gánh tạ 150 kg (tổng lực cản <span class="math inline">\(P = (65 + 150) \times 10 = 2150N\)</span>, cánh tay đòn lực cản <span class="math inline">\(L_{P} = 35cm\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Cơ chế vật lý</em>: Khi đứng dậy, cơ tứ đầu đùi co rất mạnh tạo lực phát động <span class="math inline">\(F\)</span> truyền qua gân bánh chè bám vào lồi củ trước xương chày (cánh tay đòn lực phát động <span class="math inline">\(L_{F} = 5cm\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tính toán lực</em>: Cân bằng moment lực tác dụng lên 1 chân: \[\frac{1}{2} P \cdot L_P = F \cdot L_F \iff \frac{1}{2} \cdot 2150 \cdot 0,35 = F \cdot 0,05 \implies F = 7525 \text{ N} \quad\]</p>
+</blockquote></li>
+</ul>
+<p><em>→ Kết luận y học</em>: Lực phát động do cơ tứ đầu đùi sinh ra (<span class="math inline">\(7525N\)</span>) vượt quá giới hạn chịu lực tối đa của xương lồi củ trước chày (<span class="math inline">\(5200N\)</span>, khoảng 8 lần trọng lượng cơ thể), dẫn đến hiện tượng gãy bứt/gãy rút lồi củ chày.</p>
+<p><strong>Phân tích các dạng Công tồn tại trong Cơ thể sống</strong>:</p>
+<ul>
+<li><blockquote>
+<p><em>Công hóa học</em>: Sinh ra khi tổng hợp các hợp chất cao phân tử (protein, acid nucleic, ATP) từ các chất phân tử nhỏ.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Công cơ học</em>: Sinh ra khi co cơ dịch chuyển các bộ phận/cơ quan hoặc toàn bộ cơ thể (hiệu suất co cơ đạt <span class="math inline">\(20 - 40\%\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Công thẩm thấu</em>: Sinh ra khi vận chuyển tích cực các chất qua màng ngược chiều gradient nồng độ.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Công điện</em>: Sinh ra khi vận chuyển các ion ngược gradient điện hóa, duy trì điện thế màng và dẫn truyền xung động thần kinh.</p>
+</blockquote></li>
+</ul>
+</div></details><details class="acc" data-g="tips"><summary><span class="num">05</span>1. Mẹo Học Tập &amp; Kinh Nghiệm Thi Môn Vật Lý Đại Cương</summary><div class="ac-b">
+<ul>
+<li><blockquote>
+<p><strong>Đặc điểm và Cấu trúc Đánh giá Môn học</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Môn học chiếm 2 tín chỉ, cung cấp nền tảng vật lý cốt lõi ứng dụng trên cơ thể sống và thiết bị y tế.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Điểm thi Giữa kỳ (chiếm 30%): Thi theo hình thức tự luận/làm bài theo nhóm nộp lại cho giảng viên.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Điểm thi Cuối kỳ (chiếm 70%): Thi trắc nghiệm 40 câu trên máy tính, bao quát toàn bộ chương trình.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Chiến thuật Học &amp; Làm bài Thi hiệu quả</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Chuẩn bị tài liệu thi</em>: Thi cuối kỳ được sử dụng sách gốc/tài liệu mở. Tuy nhiên, không nên note quá chi tiết vào sách vì giảng viên sẽ kiểm tra và thu sách nếu vi phạm.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Mẹo làm bài thi đề mở</em>: Cần thuộc lòng các công thức cơ bản và nhận dạng bài tập ngay trong slide. Nếu câu nào cũng lật sách tìm công thức sẽ bị thiếu thời gian.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Phương pháp ôn tập</em>: Bám sát 100% slide giảng dạy và bài tập thầy cô cho, không ôn tràn lan các tài liệu bên ngoài. Học hiểu bản chất hiện tượng và công thức thay vì học thuộc lòng đáp án trắc nghiệm.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+</div></details><details class="acc" data-g="tips"><summary><span class="num">06</span>2. Phân Loại Dạng Bài Tập &amp; Tips Giải Theo Chủ Đề</summary><div class="ac-b">
+<h4 class="sh">Chủ đề 1: Quang Sinh Học &amp; Quang Hình Học</h4>
+<ul>
+<li><blockquote>
+<p><strong>Dạng 1.1: Khúc xạ, Phản xạ toàn phần và Bản mặt song song</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: Định luật khúc xạ <span class="math inline">\(n_{1}\sin i_{1} = n_{2}\sin i_{2}\)</span>; Góc giới hạn phản xạ toàn phần <span class="math inline">\(\sin i_{gh} = \frac{n_{2}}{n_{1}}\)</span> (với <span class="math inline">\(n_{1} &gt; n_{2}\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips giải nhanh bài toán góc trông ảo ở đáy nước</em>: Nhìn hòn sỏi/đáy bể nước sâu <span class="math inline">\(h\)</span> theo phương gần vuông góc, độ sâu ảo <span class="math inline">\(h&#39;\)</span> mà mắt thấy được tính bằng <span class="math inline">\(h&#39; = \frac{h}{n}\)</span> (với nước có <span class="math inline">\(n = \frac{4}{3}\)</span>, nếu bể sâu <span class="math inline">\(1,2m \Rightarrow h&#39; = 0,9m\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips bài toán tia phản xạ vuông góc tia khúc xạ</em>: Khi <span class="math inline">\(i + r = 90^{\circ}\)</span>, áp dụng nhanh công thức <span class="math inline">\(n = \tan i\)</span>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Dạng 1.2: Kính Phân Cực &amp; Định luật Malus, Biot</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: Cường độ sáng sau khi qua kính phân cực <span class="math inline">\(T_{1}\)</span>: <span class="math inline">\(I_{1} = \frac{I_{0}}{2}\)</span>. Cường độ sáng sau kính phân tích <span class="math inline">\(T_{2}\)</span>: <span class="math inline">\(I_{2} = I_{1}\cos^{2}\alpha = \frac{I_{0}}{2}\cos^{2}\alpha\)</span>. Nếu kính hấp thụ <span class="math inline">\(k\%\)</span> ánh sáng: <span class="math inline">\(I_{1} = \frac{I_{0}(1 - k)}{2}\)</span>, <span class="math inline">\(I_{2} = I_{1}(1 - k)\cos^{2}\alpha\)</span>. Định lý Biot: <span class="math inline">\(R = \lbrack\alpha\rbrack LC\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips giải nhanh</em>: Khi bài toán yêu cầu tìm góc <span class="math inline">\(\alpha\)</span> để cường độ sáng giảm 4 lần sau khi qua 2 kính (không hấp thụ): <span class="math inline">\(\frac{I_{0}}{2}\cos^{2}\alpha = \frac{I_{0}}{4} \Rightarrow \cos^{2}\alpha = \frac{1}{2} \Rightarrow \alpha = 45^{\circ}\)</span>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Dạng 1.3: Thấu Kính &amp; Tật Khúc Xạ Mắt (Ca lâm sàng Y học)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: Độ tụ <span class="math inline">\(D = \frac{1}{f} = (n - 1)\left( \frac{1}{R_{1}} - \frac{1}{R_{2}} \right)\)</span>. Kính sửa tật cận thị: <span class="math inline">\(D_{k} = - \frac{1}{OC_{v}}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips chẩn đoán ca lâm sàng đo thị lực</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Khi thử thị lực nhìn xa: Đeo kính hội tụ nhìn mờ hơn, đeo kính phân kỳ nhìn rõ hơn <span class="math inline">\(\rightarrow\)</span> Mắt bị <strong>Cận thị</strong>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Khi thử thị lực nhìn gần (người lớn tuổi): Khoảng nhìn rõ bị dời ra xa (<span class="math inline">\(40 - 100cm\)</span>) <span class="math inline">\(\rightarrow\)</span> Mắt bị <strong>Lão thị</strong>.</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Dạng 1.4: Quang Phổ Hấp Thụ &amp; Định luật Bouguer - Lambert - Beer</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: <span class="math inline">\(I = I_{0} \cdot 10^{- aCl}\)</span>; Mật độ quang <span class="math inline">\(D = \lg\left( \frac{I_{0}}{I} \right) = aCl\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips ứng dụng Y học</em>: Bước sóng hấp thụ cực đại <span class="math inline">\(\lambda_{\max}\)</span> dùng để <strong>định tính</strong> nhận biết chất (Protein có <span class="math inline">\(\lambda_{\max} = 280nm\)</span>, Axit Nucleic có <span class="math inline">\(\lambda_{\max} = 260nm\)</span>); Mật độ quang <span class="math inline">\(D\)</span> tại đỉnh phổ dùng để <strong>định lượng</strong> nồng độ chất trong dung dịch sinh học.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h4 class="sh">Chủ đề 2: Điện Sinh Học &amp; Điện Học</h4>
+<ul>
+<li><blockquote>
+<p><strong>Dạng 2.1: Tương Tác Điện Tích &amp; Điện Trường</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: Lực Coulomb <span class="math inline">\(F = k\frac{|q_{1}q_{2}|}{\epsilon r^{2}}\)</span>; Cường độ điện trường <span class="math inline">\(E = k\frac{|q|}{\epsilon r^{2}}\)</span>; Hiệu điện thế giữa 2 bản song song <span class="math inline">\(U = E \cdot d\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips giải nhanh</em>: Lực tĩnh điện trong nguyên tử Hydro ở trạng thái cơ bản (<span class="math inline">\(r = 5,29 \cdot 10^{- 11}m\)</span>): <span class="math inline">\(F = \frac{ke^{2}}{r^{2}} \approx 8,25 \cdot 10^{- 8}N\)</span>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Dạng 2.2: Kỹ Thuật Điện Di Gel (Electrophoresis)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Tips lý thuyết</em>: Phân tử DNA/RNA mang điện tích âm toàn phần do nhóm phosphate, dưới tác dụng của điện trường đều <span class="math inline">\(E\)</span>, phân tử di chuyển từ cực âm sang cực dương. Gel agarose đóng vai trò ma trận sàng lọc: phân tử kích thước nhỏ di chuyển nhanh và xa hơn phân tử lớn.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h4 class="sh">Chủ đề 3: Vật Lý Hạt Nhân &amp; Bức Xạ Y Học</h4>
+<ul>
+<li><blockquote>
+<p><strong>Dạng 3.1: Phân Rã Phóng Xạ &amp; Độ Phóng Xạ</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: <span class="math inline">\(N(t) = N_{0} \cdot 2^{- t/T}\)</span>; Độ phóng xạ <span class="math inline">\(H(t) = \lambda N(t) = H_{0} \cdot 2^{- t/T}\)</span> với <span class="math inline">\(\lambda = \frac{\ln 2}{T}\)</span>. Đổi đơn vị: <span class="math inline">\(1Ci = 3,7 \cdot 10^{10}Bq\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips giải nhanh</em>: Tính khối lượng chất phóng xạ từ độ phóng xạ <span class="math inline">\(H\)</span>: <span class="math inline">\(m = \frac{H \cdot T \cdot M}{\ln 2 \cdot N_{A}}\)</span> (lưu ý chu kỳ bán rã <span class="math inline">\(T\)</span> bắt buộc phải đổi ra đơn vị giây).</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Dạng 3.2: Liều Bức Xạ &amp; Tương Tác Vật Chất</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: Liều hấp thụ <span class="math inline">\(D = \frac{E}{m}\)</span> (<span class="math inline">\(1Gy = 100rad\)</span>); Liều tương đương <span class="math inline">\(H = D \cdot W_{R}\)</span> (Sv).</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips phân biệt hiệu ứng</em>: Hiệu ứng Quang điện xảy ra ở dải năng lượng thấp (<span class="math inline">\(0,01 - 0,1MeV\)</span>), photon truyền toàn bộ năng lượng cho electron lớp K. Hiệu ứng Compton xảy ra ở dải năng lượng cao hơn (<span class="math inline">\(0,1 - 10MeV\)</span>), photon truyền một phần năng lượng cho electron lớp ngoài cùng và bị tán xạ.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h4 class="sh">Chủ đề 4: Cơ Học, Đòn Bẩy Sinh Học &amp; Cơ Học Chất Lưu</h4>
+<ul>
+<li><blockquote>
+<p><strong>Dạng 4.1: Cân Bằng Đòn Bẩy Sinh Học &amp; Moment Lực</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>: <span class="math inline">\(M = F \cdot d\)</span>; Phương trình cân bằng đòn bẩy: <span class="math inline">\(F \cdot L_{F} = P \cdot L_{P} \Rightarrow F = P\frac{L_{P}}{L_{F}}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Tips phân tích ca lâm sàng gãy xương</em>: Xác định loại đòn bẩy của khớp; Lực cản <span class="math inline">\(P = (m_{\text{người}} + m_{\text{tạ}}) \cdot g\)</span>. Lực co cơ phát động tính bằng <span class="math inline">\(F = \frac{P \cdot L_{P}}{2 \cdot L_{F}}\)</span> (cho 1 chân). Nếu <span class="math inline">\(F\)</span> vượt quá giới hạn chịu lực của lồi củ xương (<span class="math inline">\(\approx 8 \times m_{\text{người}} \cdot g\)</span>) thì kết luận gãy bứt.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Dạng 4.2: Cơ Học Chất Lưu (Phương trình Liên tục, Bernoulli, Poiseuille, Venturi)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công thức gốc</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Phương trình liên tục: <span class="math inline">\(Q = S_{1}v_{1} = S_{2}v_{2} = const\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Phương trình Bernoulli: <span class="math inline">\(p_{1} + \frac{1}{2}\rho v_{1}^{2} + \rho gh_{1} = p_{2} + \frac{1}{2}\rho v_{2}^{2} + \rho gh_{2}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Định luật Poiseuille: \(Q = \frac{\pi r^4 (p_1 - p_2)}{8 \eta L} \implies \Delta p = \frac{8 \eta L Q}{\pi r^4}\).</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><em>Tips giải nhanh bài toán Ống Venturi đo tốc độ chất lỏng</em>: Độ chênh áp suất tĩnh <span class="math inline">\(\Delta p = p_{1} - p_{2} = \frac{1}{2}\rho v_{1}^{2}\left\lbrack \left( \frac{S_{1}}{S_{2}} \right)^{2} - 1 \right\rbrack = \rho g\Delta h\)</span>.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+
+</div></details><details class="acc" data-g="bt"><summary><span class="num">07</span>1. Hệ Thống Câu Hỏi Lý Thuyết &amp; Ứng Dụng Y Học</summary><div class="ac-b">
+<ul>
+<li><blockquote>
+<p><strong>Câu 1 (Đề D20, D23): Trình bày nội dung, biểu thức và ý nghĩa Y học của Định luật Poiseuille.<br />
+</strong></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Lời giải chuẩn</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Nội dung: Lưu lượng chất lưu thực chảy qua một ống hình trụ tròn tỉ lệ thuận với hiệu áp suất hai đầu ống (<span class="math inline">\(\Delta p\)</span>) và lũy thừa 4 của bán kính ống (<span class="math inline">\(r^{4}\)</span>), tỉ lệ nghịch với hệ số nhớt (<span class="math inline">\(\eta\)</span>) và độ dài ống (<span class="math inline">\(L\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Biểu thức: <span class="math inline">\(Q = \frac{\pi r^{4}(p_{1} - p_{2})}{8\eta L} = \frac{\pi r^{4}\Delta p}{8\eta L}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Ý nghĩa Y học: Áp dụng để đo độ nhớt của máu và tính toán độ giảm huyết áp trong hệ tuần hoàn. Khi bán kính mạch máu <span class="math inline">\(r\)</span> giảm nhỏ (do xơ vữa), lực cản và độ giảm áp <span class="math inline">\(\Delta p\)</span> tăng rất nhanh theo lũy thừa 4, buộc tim phải co bóp mạnh hơn gây cao huyết áp.</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 2 (Đề D20): Phân tích các dạng công tồn tại trong cơ thể sống.<br />
+</strong></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Lời giải chuẩn</em>: Có 4 dạng công tồn tại trong cơ thể sống:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Công hóa học</em>: Sinh ra khi tổng hợp các hợp chất cao phân tử (protein, acid nucleic, ATP) từ các chất phân tử nhỏ.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Công cơ học</em>: Sinh ra khi sự co cơ làm dịch chuyển các cơ quan hoặc toàn bộ cơ thể.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Công thẩm thấu</em>: Sinh ra khi vận chuyển tích cực các chất qua màng tế bào ngược chiều gradient nồng độ.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Công điện</em>: Sinh ra khi vận chuyển các ion mang điện ngược chiều gradient điện hóa, tạo nên điện thế màng và dẫn truyền xung động thần kinh.</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 3 (Đề D20): Ứng dụng định luật Pascal phân tích khả năng khuếch đại âm thanh của tai giữa.<br />
+</strong></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Lời giải chuẩn</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Biên độ di chuyển của xương bàn đạp tại cửa sổ bầu dục bằng <span class="math inline">\(\frac{2}{3}\)</span> biên độ của cán xương búa, nhưng chuỗi xương con làm tăng lực chuyển động lên 1,3 lần.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Do diện tích màng nhĩ (<span class="math inline">\(S_{1} \approx 55mm^{2}\)</span>) lớn hơn rất nhiều diện tích cửa sổ bầu dục (<span class="math inline">\(S_{2} \approx 3,2mm^{2}\)</span>), theo định luật Pascal (<span class="math inline">\(p = \frac{F}{S}\)</span>), áp suất sóng âm tác dụng lên cửa sổ bầu dục được khuếch đại gấp 22 lần áp lực tác dụng lên màng nhĩ, giúp âm thanh truyền hiệu quả từ môi trường không khí vào môi trường dịch tai trong.</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 4 (Đề D21, D22): Tại sao trong mổ nội soi lại ứng dụng hiện tượng phản xạ toàn phần?<br />
+</strong></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Lời giải chuẩn</em>: Sợi quang học (optical fiber) có cấu tạo gồm lõi trong suốt chiết suất lớn (<span class="math inline">\(n_{1}\)</span>) được bọc bởi lớp vỏ có chiết suất nhỏ hơn (<span class="math inline">\(n_{2} &lt; n_{1}\)</span>). Khi ánh sáng truyền vào lõi với góc tới <span class="math inline">\(i \geq i_{gh}\)</span>, hiện tượng phản xạ toàn phần diễn ra liên tục tại bề mặt phân cách lõi - vỏ. Điều này giúp dẫn truyền chùm ánh sáng nội soi và hình ảnh giải phẫu từ cơ quan sâu bên trong cơ thể ra ngoài màn hình mà không bị thất thoát năng lượng.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 5 (Đề D21, D23): Tại sao ý tưởng về động cơ vĩnh cửu Siphon - Mao dẫn lại sai lầm?<br />
+</strong></p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Lời giải chuẩn</em>: Nước từ bình A chảy xuống bình B qua ống siphon C do chênh lệch áp suất thủy tĩnh. Tuy nhiên, tại ống mao dẫn D, lực căng mặt ngoài nâng cột nước dâng lên nhưng tạo ra một mặt khum lõm ở đầu trên, giữ chặt cột chất lỏng. Lực hút mao dẫn cân bằng với trọng lượng cột nước dâng nên nước không thể tự chảy đứt giọt ra khỏi đầu ống D để rớt ngược lại bình A.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+</div></details><details class="acc" data-g="bt"><summary><span class="num">08</span>2. Hệ Thống Bài Tập Tính Toán Tham Khảo Có Lời Giải Chi Tiết</summary><div class="ac-b">
+<ul>
+<li><blockquote>
+<p><strong>Bài toán 1 (Phân tích Ca lâm sàng Gãy bứt lồi củ chày - File Gãy rứt)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Đề bài</em>: Bệnh nhân nam <span class="math inline">\(65kg\)</span> gánh tạ <span class="math inline">\(150kg\)</span>. Chiều dài xương đùi <span class="math inline">\(40cm\)</span>. Khoảng cách từ trục quay khớp gối đến điểm bám gân bánh chè <span class="math inline">\(L_{F} = 5cm\)</span>. Khoảng cách từ khớp gối đến điểm đặt lực cản tạ <span class="math inline">\(L_{P} = 35cm\)</span>. Lực chịu tối đa của lồi củ chày là <span class="math inline">\(5200N\)</span>. Tính lực co cơ tứ đầu đùi và giải thích nguyên nhân gãy.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Lời giải</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Tổng lực cản tác dụng lên 2 chân: <span class="math inline">\(P = (65 + 150) \times 10 = 2150N\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Phương trình cân bằng moment lực tác dụng trên 1 chân: \[\frac{1}{2} P \cdot L_P = F_{\text{phát động}} \cdot L_F \iff \frac{1}{2} \cdot 2150 \cdot 0,35 = F_{\text{phát động}} \cdot 0,05 \implies F_{\text{phát động}} = 7525 \text{ N} \quad\]</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Kết luận</em>: Do lực phát động do cơ tứ đầu đùi sinh ra (<span class="math inline">\(7525N\)</span>) vượt quá giới hạn chịu lực tối đa của lồi củ chày (<span class="math inline">\(5200N\)</span>), làm gân bánh chè kéo giật bứt rời mảnh xương lồi củ trước xương chày.</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Bài toán 2 (Chuyển động quay trên Ghế Giucốpxki - Đề D23, Bài 1)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Đề bài</em>: Người ngồi trên ghế Giucốpxki dang tay cầm 2 quả tạ <span class="math inline">\(m = 3kg\)</span> cách trục <span class="math inline">\(r_{1} = 1m\)</span>, hệ quay với tốc độ góc <span class="math inline">\(\omega_{1} = 0,75rad/s\)</span>. Moment quán tính người + ghế \(I_0 = 3 \text{ kg}\cdot\text{m}^2\). Người co tay đưa tạ vào cách trục <span class="math inline">\(r_{2} = 0,3m\)</span>. Tính tốc độ góc mới <span class="math inline">\(\omega_{2}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Lời giải</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Moment quán tính ban đầu: \(I_1 = I_0 + 2 m r_1^2 = 3 + 2(3 \times 1^2) = 9 \text{ kg}\cdot\text{m}^2\).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Moment quán tính lúc sau: \(I_2 = I_0 + 2 m r_2^2 = 3 + 2(3 \times 0,3^2) = 3,54 \text{ kg}\cdot\text{m}^2\).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Định luật bảo toàn moment động lượng: \[I_1 \omega_1 = I_2 \omega_2 \iff 9 \times 0,75 = 3,54 \times \omega_2 \implies \omega_2 \approx 1,907 \text{ rad/s} \quad\]</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Bài toán 3 (Độ giảm huyết áp trong động mạch chủ - Đề D23, Bài 6)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Đề bài</em>: Tính độ giảm huyết áp <span class="math inline">\(\Delta p\)</span> dọc theo đoạn động mạch chủ dài <span class="math inline">\(L = 30cm = 0,3m\)</span>, bán kính <span class="math inline">\(r = 0,5cm = 5 \cdot 10^{- 3}m\)</span>. Lưu lượng máu <span class="math inline">\(Q = 8\,\text{lít}/\text{phút} = \frac{8 \cdot 10^{- 3}}{60}m^{3}/s\)</span>, độ nhớt máu <span class="math inline">\(\eta = 4 \cdot 10^{- 3}Pa\cdots\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Lời giải</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Áp dụng công thức Poiseuille:</p>
+</blockquote></li>
+<li><blockquote>
+<p><span class="math inline">\(\Delta p = \frac{8\eta LQ}{\pi r^{4}} = \frac{8 \times (4 \cdot 10^{- 3}) \times 0,3 \times \left( \frac{8 \cdot 10^{- 3}}{60} \right)}{\pi \times (5 \cdot 10^{- 3})^{4}} \approx 651,9Pa( \approx 4,89mmHg)\)</span></p>
+</blockquote></li>
+<li></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Bài toán 4 (Số lượng mao mạch trong hệ tuần hoàn - Đề D23, Bài 7)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Đề bài</em>: Lưu lượng máu từ tim <span class="math inline">\(Q = 5\,\text{lít}/\text{phút} = \frac{5 \cdot 10^{- 3}}{60} = 8,333 \cdot 10^{- 5}m^{3}/s\)</span>. Vận tốc máu trong mao mạch <span class="math inline">\(v = 0,33mm/s = 0,33 \cdot 10^{- 3}m/s\)</span>. Đường kính mao mạch \(d = 0,008 \text{ mm} \implies r = 4 \cdot 10^{-6} \text{ m}\). Tính số lượng mao mạch <span class="math inline">\(N\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Lời giải</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Tiết diện một mao mạch: <span class="math inline">\(S_{1} = \pi r^{2} = \pi \times (4 \cdot 10^{- 6})^{2} \approx 5,0265 \cdot 10^{- 11}m^{2}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Phương trình liên tục: \(Q = N \cdot S_1 \cdot v \implies N = \frac{Q}{S_1 \cdot v}\).</p>
+</blockquote></li>
+<li><blockquote>
+<p>Số lượng mao mạch:</p>
+</blockquote></li>
+<li><blockquote>
+<p><span class="math inline">\(N = \frac{8,333 \cdot 10^{- 5}}{(5,0265 \cdot 10^{- 11}) \times (0,33 \cdot 10^{- 3})} \approx 5,02 \cdot 10^{9}(\text{khoảng } 5 \text{ tỷ mao mạch})\)</span></p>
+</blockquote></li>
+<li></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Bài toán 5 (Vận tốc và áp suất nước lên tầng cao - Đề D23, Bài 5)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Đề bài</em>: Tầng trệt: áp suất <span class="math inline">\(p_{1} = 3,3atm = 3,333 \cdot 10^{5}Pa\)</span>, <span class="math inline">\(v_{1} = 0,5m/s\)</span>, đường kính <span class="math inline">\(d_{1} = 5cm\)</span>. Tầng trên cao <span class="math inline">\(h = 25m\)</span>, đường kính <span class="math inline">\(d_{2} = 2,5cm\)</span>. Tính <span class="math inline">\(v_{2}\)</span> và áp suất <span class="math inline">\(p_{2}\)</span> theo atm.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Lời giải</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Tỉ lệ tiết diện: <span class="math inline">\(\frac{S_{1}}{S_{2}} = \left( \frac{d_{1}}{d_{2}} \right)^{2} = 4\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Vận tốc tầng trên: <span class="math inline">\(v_{2} = v_{1} \cdot \frac{S_{1}}{S_{2}} = 0,5 \times 4 = 2,0m/s\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Áp dụng phương trình Bernoulli: <span class="math inline">\(p_{1} + \frac{1}{2}\rho v_{1}^{2} = p_{2} + \frac{1}{2}\rho v_{2}^{2} + \rho gh\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><span class="math inline">\(3,333 \cdot 10^{5} + \frac{1}{2}(1000)(0,5)^{2} = p_{2} + \frac{1}{2}(1000)(2)^{2} + (1000 \times 9,8 \times 25)\)</span></p>
+</blockquote></li>
+<li><blockquote>
+<p>\[333425 = p_2 + 2000 + 245000 \implies p_2 = 86425 \text{ Pa} \approx 0,856 \text{ atm} \quad\]</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Bài toán 6 (Tính khối lượng đồng vị phóng xạ</strong> <span class="math inline">\(K^{40}\)</span> <strong>- Đề D21, Bài 8a)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><em>Đề bài</em>: Tính khối lượng <span class="math inline">\({}^{40}K\)</span> có độ phóng xạ \(H = 4,6 \mu\text{Ci}\). Chu kỳ bán rã <span class="math inline">\(T = 1,28 \cdot 10^{9}\text{năm}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><em>Lời giải</em>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Đổi đơn vị độ phóng xạ: <span class="math inline">\(H = 4,6 \cdot 10^{- 6} \times 3,7 \cdot 10^{10} = 170200Bq\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Chu kỳ bán rã tính bằng giây: <span class="math inline">\(T = 1,28 \cdot 10^{9} \times 365 \times 86400 \approx 4,037 \cdot 10^{16}s\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Hằng số phóng xạ: <span class="math inline">\(\lambda = \frac{\ln 2}{T} = \frac{0,693}{4,037 \cdot 10^{16}} \approx 1,7166 \cdot 10^{- 17}s^{- 1}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Số hạt nhân phóng xạ: <span class="math inline">\(N = \frac{H}{\lambda} = \frac{170200}{1,7166 \cdot 10^{- 17}} \approx 9,915 \cdot 10^{21}\text{hạt}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Khối lượng cần tìm: <span class="math inline">\(m = \frac{N}{N_{A}} \times M = \frac{9,915 \cdot 10^{21}}{6,022 \cdot 10^{23}} \times 40 \approx 0,6587g\)</span>.</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+</ul>
+
+</div></details><details class="acc" data-g="de"><summary><span class="num">09</span>1. Đề Thi Giữa Kỳ Số 01</summary><div class="ac-b">
+<ul>
+<li><blockquote>
+<p><strong>Thời gian làm bài</strong>: 60 phút (Không sử dụng tài liệu ngoài công thức cơ bản).</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Cấu trúc</strong>: 100% Tự luận (4 câu hỏi tổng hợp lý thuyết và bài tập tính toán y sinh).</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>NỘI DUNG ĐỀ THI SỐ 01</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><strong>Câu 1 (2,5 điểm - Lý thuyết Quang sinh học &amp; Thị giác)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Trình bày khái niệm góc trông nhỏ nhất (<span class="math inline">\(\alpha_{\min}\)</span>) và năng suất phân ly của mắt. Nêu giá trị góc trông nhỏ nhất ở mắt người bình thường.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Trình bày cơ chế quang sinh của chu trình sắc tố Rodopsin ở tế bào hình que khi mắt tiếp xúc với ánh sáng và trong bóng tối.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 2 (2,5 điểm - Lý thuyết Điện học &amp; Y học)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Trình bày nguyên lý và cơ chế phân tách các đoạn DNA tích điện âm trong kỹ thuật Điện di Gel Agarose.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Phát biểu định luật Malus về hiện tượng phân cực ánh sáng. Viết công thức tính cường độ sáng thu được sau khi chùm sáng tự nhiên qua kính phân cực và kính phân tích.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 3 (2,5 điểm - Bài tập Đòn bẩy sinh học)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Một người có khối lượng <span class="math inline">\(60kg\)</span> thực hiện động tác kiễng chân bằng một chân trên mặt đất. Điểm tựa <span class="math inline">\(T\)</span> nằm ở đầu ngón chân tiếp xúc mặt đất. Lực cản <span class="math inline">\(P\)</span> là trọng lượng cơ thể tác dụng xuống cách đầu ngón chân <span class="math inline">\(L_{P} = 10cm\)</span>. Lực phát động <span class="math inline">\(F\)</span> do gân Asin kéo xương gót cách đầu ngón chân <span class="math inline">\(L_{F} = 15cm\)</span>. Lấy <span class="math inline">\(g = 10m/s^{2}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>a) Xác định loại đòn bẩy của hệ xương gót - gân Asin và vẽ sơ đồ lực tác dụng.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Tính độ lớn lực co cơ gót chân (<span class="math inline">\(F\)</span>) để giữ cơ thể ở trạng thái kiễng chân cân bằng.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 4 (2,5 điểm - Bài tập Cơ học chất lưu &amp; Y học)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Một đoạn động mạch hình trụ có bán kính ban đầu <span class="math inline">\(r_{1} = 4mm\)</span>. Do quá trình tích tụ mỡ máu (xơ vữa động mạch), bán kính lòng mạch bị thu hẹp chỉ còn <span class="math inline">\(r_{2} = 3mm\)</span>. Giả sử lưu lượng máu <span class="math inline">\(Q\)</span>, độ nhớt <span class="math inline">\(\eta\)</span> và chiều dài đoạn mạch <span class="math inline">\(L\)</span> không thay đổi.</p>
+</blockquote></li>
+<li><blockquote>
+<p>a) Áp dụng định luật Poiseuille, hãy lập tỉ số độ giảm áp suất <span class="math inline">\(\frac{\Delta p_{2}}{\Delta p_{1}}\)</span> giữa lúc mạch bị xơ vữa và lúc mạch bình thường.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Nhận xét sự thay đổi độ giảm áp suất và giải thích vì sao bệnh nhân xơ vữa động mạch thường bị cao huyết áp.</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+</ul>
+</div></details><details class="acc" data-g="de"><summary><span class="num">10</span>2. Đề Thi Giữa Kỳ Số 02</summary><div class="ac-b">
+<ul>
+<li><blockquote>
+<p><strong>Thời gian làm bài</strong>: 60 phút.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Cấu trúc</strong>: 100% Tự luận (4 câu hỏi).</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>NỘI DUNG ĐỀ THI SỐ 02</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><strong>Câu 1 (2,5 điểm - Lý thuyết Cơ học chất lưu &amp; Cơ quan cảm giác)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Phát biểu và viết biểu thức định luật Pascal.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Vận dụng định luật Pascal giải thích cơ chế khuếch đại áp suất sóng âm của chuỗi xương con và màng nhĩ ở tai giữa khi truyền âm vào tai trong.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 2 (2,5 điểm - Lý thuyết Hạt nhân &amp; Bức xạ Y học)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Phân biệt cơ chế tương tác với vật chất của bức xạ ion hóa giữa Hiệu ứng Quang điện và Hiệu ứng Compton (về năng lượng photon, loại electron tác động và sản phẩm tạo thành).</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Phân biệt 3 loại liều bức xạ: Liều hấp thụ, Liều tương đương và Liều hiệu dụng (Đơn vị đo và ý nghĩa).</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 3 (2,5 điểm - Bài tập Cơ học quay)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Một sinh viên Y khoa ngồi trên ghế Giucốpxki đang quay tự do quanh trục thẳng đứng không ma sát với tốc độ góc <span class="math inline">\(\omega_{1} = 1,2rad/s\)</span>. Sinh viên dang rộng hai tay cầm 2 quả tạ (mỗi quả <span class="math inline">\(m = 2kg\)</span>), khoảng cách từ mỗi quả tạ đến trục quay là <span class="math inline">\(r_{1} = 0,8m\)</span>. Moment quán tính của người + ghế (không tính tạ) là \(I_0 = 2,5 \text{ kg}\cdot\text{m}^2\).</p>
+</blockquote></li>
+<li><blockquote>
+<p>a) Tính tổng moment quán tính <span class="math inline">\(I_{1}\)</span> của hệ lúc đầu.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Khi sinh viên co tay đưa hai quả tạ vào sát trục quay cách trục <span class="math inline">\(r_{2} = 0,2m\)</span>, tính tốc độ góc mới <span class="math inline">\(\omega_{2}\)</span> của ghế.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 4 (2,5 điểm - Bài tập Dược chất phóng xạ Y học)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Đồng vị phóng xạ <span class="math inline">\({}^{131}I\)</span> được sử dụng phổ biến trong chẩn đoán và điều trị bệnh lý tuyến giáp, có chu kỳ bán rã <span class="math inline">\(T = 8\,\text{ngày}\)</span>. Một bệnh nhân được tiêm một liều dược chất phóng xạ chứa <span class="math inline">\({}^{131}I\)</span> có độ phóng xạ ban đầu <span class="math inline">\(H_{0} = 10mCi\)</span> (cho <span class="math inline">\(1Ci = 3,7 \cdot 10^{10}Bq\)</span>).</p>
+</blockquote></li>
+<li><blockquote>
+<p>a) Tính khối lượng <span class="math inline">\({}^{131}I\)</span> ban đầu có trong liều tiêm.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Tính độ phóng xạ còn lại của liều tiêm trong cơ thể bệnh nhân sau <span class="math inline">\(24\,\text{ngày}\)</span> (bỏ qua sự đào thải sinh học).</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+</ul>
+</div></details><details class="acc" data-g="de"><summary><span class="num">11</span>3. Đề Thi Giữa Kỳ Số 03</summary><div class="ac-b">
+<ul>
+<li><blockquote>
+<p><strong>Thời gian làm bài</strong>: 60 phút.</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>Cấu trúc</strong>: 100% Tự luận (4 câu hỏi).</p>
+</blockquote></li>
+<li><blockquote>
+<p><strong>NỘI DUNG ĐỀ THI SỐ 03</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><strong>Câu 1 (2,5 điểm - Lý thuyết Nhiệt động lực học &amp; Quang sinh)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Phân tích 4 dạng công tồn tại trong cơ thể sống (Công hóa học, Công cơ học, Công thẩm thấu, Công điện).</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Giải thích nguyên lý quang hình học của hiện tượng phản xạ toàn phần ứng dụng trong kỹ thuật mổ nội soi bằng sợi quang.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 2 (2,5 điểm - Lý thuyết Đòn bẩy sinh học Y học)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Phân loại 3 loại đòn bẩy trong cơ thể người. Cho ví dụ cụ thể minh họa từng loại đòn bẩy gắn liền với khớp xương.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Nêu đặc điểm vượt trội về mặt cơ học của Đòn bẩy loại II (đòn bẩy sức mạnh) và Đòn bẩy loại III (đòn bẩy tốc độ).</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 3 (2,5 điểm - Bài tập Ca lâm sàng Y sinh)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Một vận động viên nam khối lượng <span class="math inline">\(70kg\)</span> thực hiện động tác đứng dậy gánh tạ <span class="math inline">\(130kg\)</span>. Chiều dài cánh tay đòn của lực cản tác dụng lên khớp gối là <span class="math inline">\(L_{P} = 36cm\)</span>. Khoảng cách từ trục quay khớp gối đến điểm bám gân bánh chè ở lồi củ trước xương chày là <span class="math inline">\(L_{F} = 4,5cm\)</span>. Biết giới hạn chịu lực tối đa của lồi củ chày ở vận động viên này bằng 8 lần trọng lượng cơ thể. Lấy <span class="math inline">\(g = 10m/s^{2}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>a) Tính lực phát động <span class="math inline">\(F\)</span> do cơ tứ đầu đùi co kéo gân bánh chè tác dụng lên 1 chân.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) So sánh lực phát động <span class="math inline">\(F\)</span> với giới hạn chịu lực của lồi củ chày và đưa ra kết luận chẩn đoán về nguy cơ tổn thương xương.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 4 (2,5 điểm - Bài tập Cơ học chất lưu - Ống dẫn nước)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>Nước được bơm qua một đường ống dẫn lên tầng cao của bệnh viện. Tại tầng trệt (độ cao <span class="math inline">\(h_{1} = 0\)</span>), ống có đường kính <span class="math inline">\(d_{1} = 4cm\)</span>, áp suất tĩnh <span class="math inline">\(p_{1} = 2,8atm\)</span> (với <span class="math inline">\(1atm = 101325Pa\)</span>) và vận tốc dòng chảy <span class="math inline">\(v_{1} = 0,6m/s\)</span>. Khi lên đến tầng cao <span class="math inline">\(h_{2} = 15m\)</span>, đường kính ống thu hẹp còn <span class="math inline">\(d_{2} = 2cm\)</span>. Cho khối lượng riêng của nước <span class="math inline">\(\rho = 1000kg/m^{3}\)</span>, <span class="math inline">\(g = 9,8m/s^{2}\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>a) Tính vận tốc nước <span class="math inline">\(v_{2}\)</span> tại tầng cao.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Tính áp suất tĩnh <span class="math inline">\(p_{2}\)</span> của nước tại tầng cao (theo đơn vị atm).</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+</ul>
+</div></details><details class="acc" data-g="de"><summary><span class="num">12</span>4. Hướng Dẫn Chấm Và Đáp Án Chi Tiết</summary><div class="ac-b">
+<h4 class="sh">ĐÁP ÁN ĐỀ THI SỐ 01</h4>
+<ul>
+<li><blockquote>
+<p><strong>Câu 1 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Góc trông nhỏ nhất <span class="math inline">\(\alpha_{\min}\)</span> là góc trông giữa hai điểm vật nhỏ nhất mà mắt còn phân biệt được hai ảnh riêng biệt trên hai tế bào thụ cảm ánh sáng kế tiếp trên võng mạc <em>(0,5 điểm)</em>. Mắt bình thường có <span class="math inline">\(\alpha_{\min} \approx 1&#39; \approx \frac{1}{3500}rad\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Chu trình Rodopsin: Chiếu sáng <span class="math inline">\(\rightarrow\)</span> Rodopsin phân hủy thành Lumirodopsin <span class="math inline">\(\rightarrow\)</span> Metarodopsin I, II <span class="math inline">\(\rightarrow\)</span> Opxin + trans-retinal, giải phóng điện thế phát động truyền xung thần kinh <em>(0,75 điểm)</em>. Trong bóng tối: trans-retinal biến đổi thành 11-cis-retinal nhờ enzyme và kết hợp với Opxin tái tạo Rodopsin <em>(0,75 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 2 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Phân tử DNA/RNA có nhóm phosphate mang điện tích âm toàn phần. Khi đặt trong điện trường đều <span class="math inline">\(E\)</span>, DNA dịch chuyển về cực dương <em>(0,5 điểm)</em>. Gel agarose đóng vai trò ma trận sàng lọc cơ học: đoạn kích thước nhỏ di chuyển nhanh/xa hơn, đoạn lớn di chuyển chậm/gần hơn <em>(0,75 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Định luật Malus: Cường độ ánh sáng phân cực sau khi qua kính phân tích tỉ lệ với bình phương cosin của góc <span class="math inline">\(\alpha\)</span> giữa mặt phẳng phân cực và mặt phẳng phân tích <em>(0,5 điểm)</em>. Công thức: <span class="math inline">\(I_{2} = I_{1}\cos^{2}\alpha = \frac{I_{0}}{2}\cos^{2}\alpha\)</span> <em>(0,75 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 3 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Đòn bẩy loại II (Lực cản <span class="math inline">\(P\)</span> nằm giữa Điểm tựa <span class="math inline">\(T\)</span> và Lực phát động <span class="math inline">\(F\)</span>) <em>(0,5 điểm)</em>. Vẽ đúng sơ đồ lực <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Trọng lượng cơ thể tác dụng lên 1 chân: <span class="math inline">\(P_{1} = \frac{1}{2}mg = \frac{1}{2} \times 60 \times 10 = 300N\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Phương trình cân bằng moment lực: \(F \cdot L_F = P_1 \cdot L_P \iff F \times 0,15 = 300 \times 0,10 \implies F = 200 \text{ N}\) <em>(1,0 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 4 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Công thức Poiseuille: \(\Delta p = \frac{8 \eta L Q}{\pi r^4} \implies \Delta p \sim \frac{1}{r^4}\) <em>(0,75 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Tỉ số độ giảm áp: <span class="math inline">\(\frac{\Delta p_{2}}{\Delta p_{1}} = \left( \frac{r_{1}}{r_{2}} \right)^{4} = \left( \frac{4}{3} \right)^{4} = \frac{256}{81} \approx 3,16\)</span> <em>(1,0 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Nhận xét: Độ giảm áp suất tăng 3,16 lần (tăng 316%). Do bán kính lòng mạch giảm làm lực cản dòng máu tăng rất mạnh, buộc tim phải co bóp mạnh hơn để duy trì lưu lượng máu, dẫn đến cao huyết áp <em>(0,75 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h4 class="sh">ĐÁP ÁN ĐỀ THI SỐ 02</h4>
+<ul>
+<li><blockquote>
+<p><strong>Câu 1 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Định luật Pascal: Độ tăng áp suất tác dụng lên một chất lỏng (hoặc khí) đựng trong bình kín được truyền nguyên vẹn đến mọi điểm của chất lỏng và thành bình <em>(0,5 điểm)</em>. Biểu thức: <span class="math inline">\(p = \frac{F}{S}\)</span> hoặc <span class="math inline">\(\Delta p_{1} = \Delta p_{2}\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Diện tích màng nhĩ (<span class="math inline">\(S_{1} \approx 55mm^{2}\)</span>) lớn hơn rất nhiều diện tích cửa sổ bầu dục (<span class="math inline">\(S_{2} \approx 3,2mm^{2}\)</span>) <em>(0,5 điểm)</em>. Theo định luật Pascal, áp suất truyền nguyên vẹn làm lực tác dụng khuếch đại: <span class="math inline">\(\frac{F_{2}}{F_{1}} = \frac{S_{1}}{S_{2}} \times 1,3 \approx 22\)</span> lần, giúp sóng âm từ môi trường khí truyền hiệu quả vào dịch tai trong <em>(1,0 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 2 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) <em>Hiệu ứng Quang điện</em>: Năng lượng photon thấp (<span class="math inline">\(0,01 - 0,1MeV\)</span>), truyền toàn bộ năng lượng cho electron lớp K, giải phóng quang electron <em>(0,75 điểm)</em>. <em>Hiệu ứng Compton</em>: Năng lượng photon cao (<span class="math inline">\(0,1 - 10MeV\)</span>), truyền 1 phần năng lượng cho electron lớp ngoài, tạo ra electron Compton và photon tán xạ bước sóng lớn hơn <em>(0,75 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Liều hấp thụ (Gy - Năng lượng hấp thụ trên 1 kg mô); Liều tương đương (Sv - Tính đến bản chất tia bức xạ <span class="math inline">\(W_{R}\)</span>); Liều hiệu dụng (Sv - Tính đến độ nhạy cảm của từng mô cơ quan <span class="math inline">\(W_{T}\)</span>) <em>(1,0 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 3 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Tổng moment quán tính ban đầu: \[I_1 = I_0 + 2 m r_1^2 = 2,5 + 2 \times (2 \times 0,8^2) = 2,5 + 2,56 = 5,06 \text{ kg}\cdot\text{m}^2 \quad (1,0 \text{ điểm})\]</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Moment quán tính lúc sau: \[I_2 = I_0 + 2 m r_2^2 = 2,5 + 2 \times (2 \times 0,2^2) = 2,5 + 0,16 = 2,66 \text{ kg}\cdot\text{m}^2 \quad (0,5 \text{ điểm})\]</p>
+</blockquote></li>
+<li><blockquote>
+<p>Bảo toàn moment động lượng: \(I_1 \omega_1 = I_2 \omega_2 \iff 5,06 \times 1,2 = 2,66 \times \omega_2 \implies \omega_2 \approx 2,283 \text{ rad/s}\) <em>(1,0 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 4 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Đổi <span class="math inline">\(H_{0} = 10^{- 2} \times 3,7 \cdot 10^{10} = 3,7 \cdot 10^{8}Bq\)</span>. Đổi <span class="math inline">\(T = 8 \times 86400 = 691200s\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Số hạt nhân ban đầu: <span class="math inline">\(N_{0} = \frac{H_{0} \cdot T}{\ln 2} = \frac{3,7 \cdot 10^{8} \times 691200}{0,693} \approx 3,69 \cdot 10^{14}\text{hạt}\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Khối lượng ban đầu: <span class="math inline">\(m_{0} = \frac{N_{0}}{N_{A}} \cdot M = \frac{3,69 \cdot 10^{14}}{6,022 \cdot 10^{23}} \times 131 \approx 8,03 \cdot 10^{- 8}g = 80,3ng\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Thời gian <span class="math inline">\(t = 24\,\text{ngày} = 3T\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Độ phóng xạ còn lại: <span class="math inline">\(H(t) = H_{0} \cdot 2^{- t/T} = 10 \times 2^{- 3} = 1,25mCi\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h4 class="sh">ĐÁP ÁN ĐỀ THI SỐ 03</h4>
+<ul>
+<li><blockquote>
+<p><strong>Câu 1 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Phân tích đúng 4 dạng công: Hóa học (tổng hợp chất), Cơ học (co cơ di chuyển), Thẩm thấu (vận chuyển qua màng ngược gradient), Điện (vận chuyển ion duy trì điện thế màng) <em>(1,25 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Sợi quang gồm lõi chiết suất <span class="math inline">\(n_{1}\)</span> bọc vỏ chiết suất <span class="math inline">\(n_{2} &lt; n_{1}\)</span>. Ánh sáng chiếu vào với góc tới <span class="math inline">\(i \geq i_{gh}\)</span> bị phản xạ toàn phần liên tục tại thành lõi, giúp dẫn truyền ánh sáng và hình ảnh nội soi <em>(1,25 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 2 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Nêu và cho ví dụ đúng 3 loại đòn bẩy: Loại I (Khớp chẩm - đội cân bằng đầu); Loại II (Khớp cổ chân kiễng chân); Loại III (Khớp khuỷu tay nâng vật) <em>(1,25 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Đòn bẩy loại II có cánh tay đòn lực phát động lớn hơn lực cản (<span class="math inline">\(L_{F} &gt; L_{P}\)</span>) nên nâng được tải trọng rất lớn (đòn bẩy sức mạnh) <em>(0,625 điểm)</em>. Đòn bẩy loại III có <span class="math inline">\(L_{F} &lt; L_{P}\)</span>, tuy tốn lực co cơ hơn nhưng tạo ra biên độ di chuyển rộng và tốc độ cao (đòn bẩy tốc độ) <em>(0,625 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 3 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Tổng lực cản tác dụng lên 2 chân: <span class="math inline">\(P = (70 + 130) \times 10 = 2000N\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Phương trình cân bằng moment lực tác dụng lên 1 chân: \[\frac{1}{2} P \cdot L_P = F \cdot L_F \iff \frac{1}{2} \times 2000 \times 0,36 = F \times 0,045 \implies F = 8000 \text{ N} \quad (1,0 \text{ điểm})\]</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Sức chịu tối đa của lồi củ chày: <span class="math inline">\(F_{\max} = 8 \times (70 \times 10) = 5600N\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>So sánh &amp; Chẩn đoán: Do <span class="math inline">\(F = 8000N &gt; F_{\max} = 5600N\)</span>, lực co cơ tứ đầu đùi quá mạnh sẽ giật bứt rời lồi củ trước xương chày (gãy bứt/gãy rút lồi củ chày) <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+</ul></li>
+<li><blockquote>
+<p><strong>Câu 4 (2,5 điểm)</strong>:</p>
+</blockquote>
+<ul>
+<li><blockquote>
+<p>a) Tỉ lệ tiết diện ống: <span class="math inline">\(\frac{S_{1}}{S_{2}} = \left( \frac{d_{1}}{d_{2}} \right)^{2} = \left( \frac{4}{2} \right)^{2} = 4\)</span> <em>(0,5 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Vận tốc tại tầng cao: <span class="math inline">\(v_{2} = v_{1} \cdot \frac{S_{1}}{S_{2}} = 0,6 \times 4 = 2,4m/s\)</span> <em>(0,75 điểm)</em>.</p>
+</blockquote></li>
+<li><blockquote>
+<p>b) Áp dụng phương trình Bernoulli:</p>
+</blockquote></li>
+<li><blockquote>
+<p><span class="math inline">\(p_{1} + \frac{1}{2}\rho v_{1}^{2} = p_{2} + \frac{1}{2}\rho v_{2}^{2} + \rho gh_{2}(0,5\,\text{điểm})\)</span></p>
+</blockquote></li>
+<li></li>
+<li><blockquote>
+<p>Đổi <span class="math inline">\(p_{1} = 2,8 \times 101325 = 283710Pa\)</span>.</p>
+</blockquote></li>
+<li><blockquote>
+<p><span class="math inline">\(283710 + \frac{1}{2}(1000)(0,6)^{2} = p_{2} + \frac{1}{2}(1000)(2,4)^{2} + (1000 \times 9,8 \times 15)\)</span></p>
+</blockquote></li>
+<li><blockquote>
+<p>\[283890 = p_2 + 2880 + 147000 \implies p_2 = 134010 \text{ Pa} \approx 1,322 \text{ atm} \quad (0,75 \text{ điểm})\]</p>
+</blockquote></li>
+</ul></li>
+</ul>
+</div></details></div></section>
+<section class="pg" id="exam"><div class="qz" id="ez"></div></section>
+<section class="pg" id="games"><h2 class="pt">Khu trò chơi</h2><p class="sub">Chọn game → đọc luật → chọn độ khó → chơi.</p><div class="grid" id="gg"></div></section>
+</main>
+<div class="ov" id="ov"><div class="md glass" id="md"></div></div>
+<button id="fab" aria-label="Chat">💬</button>
+<div id="chat" class="glass"><div class="ch">GenZ Physics Bro 🤙<small>Giải thích kiểu đời thường rồi mới vào học thuật</small></div><div class="cm" id="cm"><div class="mg a">Yo! Mình là Physics Bro 🤙 Hỏi mình bất kỳ thứ gì trong bài, ví dụ: "phản xạ toàn phần là gì?"</div></div><form class="cf" id="cfm"><input id="ci" placeholder="Hỏi Physics Bro..." autocomplete="off"><button class="btn" type="submit">Gửi</button></form></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const KB="## Mục 1: Quang sinh học & Quang hình học Các định luật cơ bản của Quang hình học: Định luật truyền thẳng : Trong môi trường trong suốt, đồng tính và đẳng hướng, ánh sáng truyền đi theo đường thẳng. Định luật tác dụng độc lập : Tác dụng của các chùm tia sáng khác nhau xảy ra độc lập và không làm thay đổi lẫn nhau. Định luật phản xạ và khúc xạ ánh sáng : Tia phản xạ và tia khúc xạ nằm trong mặt phẳng tới. Góc phản xạ bằng góc tới ( \\(i = i'\\) ). Tỉ số giữa sin góc tới và sin góc khúc xạ là đại lượng không đổi đối với hai môi trường xác định: \\(\\frac{\\sin i_{1}}{\\sin i_{2}} = n_{21} = \\frac{n_{2}}{n_{1}}\\text{ hoặc }n_{1}\\sin i_{1} = n_{2}\\sin i_{2}\\) Chiết suất tuyệt đối của môi trường là \\(n = \\frac{c}{v}\\) (với \\(c = 3 \\cdot 10^{8}m/s\\) ). Nếu \\(n_{2} > n_{1}\\) , môi trường 2 chiết quang hơn môi trường 1 ( \\(i_{2} < i_{1}\\) ). Hiện tượng phản xạ toàn phần : Khi ánh sáng truyền từ môi trường chiết quang hơn ( \\(n_{1}\\) ) sang môi trường kém chiết quang ( \\(n_{2} < n_{1}\\) ), với góc tới \\(i \\geq i_{gh}\\) (trong đó \\(\\sin i_{gh} = \\frac{n_{2}}{n_{1}}\\) ), toàn bộ ánh sáng bị phản xạ trở lại môi trường cũ mà không có tia khúc xạ. Ứng dụng Y học : Hiện tượng phản xạ toàn phần được ứng dụng trực tiếp trong kỹ thuật chế tạo sợi quang dùng cho mổ nội soi và chẩn đoán nội soi tổn thương cơ quan bên trong. Thấu kính & Sự tạo ảnh : Thấu kính hội tụ (rìa mỏng, độ tụ \\(D > 0\\) ) và thấu kính phân kỳ (rìa dày, độ tụ \\(D < 0\\) ). Công thức thấu kính: \\(\\frac{1}{f} = \\frac{1}{s'} - \\frac{1}{s} = (n - 1)\\left( \\frac{1}{R_{1}} - \\frac{1}{R_{2}} \\right)\\) Độ tụ \\(D = \\frac{1}{f}\\) (đơn vị Điốp - D, với \\(f\\) tính bằng mét). Quang hình học của mắt & Năng suất phân ly : Cấu tạo quang hình học : Mắt gồm Giác mạc (màng cứng trong suốt khúc xạ ánh sáng), Thủy dịch ( \\(n \\approx 1,33\\) ), Con ngươi (lỗ tròn điều chỉnh lượng sáng), Thủy tinh thể (thấu kính hội tụ đặc thạch có tiêu cự \\(f\\) thay đổi được), Dịch thủy tinh ( \\(n \\approx 1,33\\) ) và Võng mạc (màn ảnh nhạy sáng chứa tế bào hình que và tế bào hình nón). Khoảng cách từ quang tâm thủy tinh thể đến võng mạc cố định \\(OV \\approx 2,2cm\\) . Sự điều tiết và giới hạn nhìn rõ : Sự điều tiết là sự thay đổi độ cong của thủy tinh thể để ảnh hiện rõ trên võng mạc. Nhìn vật ở gần: cơ vòng căng, thủy tinh thể phồng to ( \\(f\\) giảm, độ tụ \\(D\\) tăng); Nhìn vật ở xa: cơ vòng thả lỏng, thủy tinh thể dẹt lại ( \\(f\\) tăng). Điểm cực cận ( \\(C_{c}\\) ) là điểm gần nhất mắt nhìn rõ khi điều tiết tối đa; Điểm cực viễn ( \\(C_{v}\\) ) là điểm xa nhất nhìn rõ khi không điều tiết. Mắt bình thường có \\(C_{v}\\) ở vô cực và \\(C_{c}\\) từ 10 - 25 cm. Năng suất phân ly : Góc trông nhỏ nhất \\(\\alpha_{\\min}\\) giữa hai điểm mà mắt còn phân biệt được hai ảnh riêng biệt trên hai tế bào thụ cảm ánh sáng kế tiếp trên võng mạc: \\(\\alpha_{\\min} \\approx 1' \\approx \\frac{1}{3500}rad\\) Các tật của mắt và cách khắc phục : Cận thị : Khi không điều tiết, tiêu điểm \\(F'\\) nằm trước võng mạc ( \\(f_{\\max} < OV\\) ); \\(C_{v}\\) ở khoảng hữu hạn trước mắt. Khắc phục: Đeo thấu kính phân kỳ có độ tụ \\(D_{k} = - \\frac{1}{OC_{v}}\\) . Viễn thị : Khi không điều tiết, tiêu điểm \\(F'\\) nằm sau võng mạc ( \\(f_{\\max} > OV\\) ); nhìn vật ở vô cực đã phải điều tiết. Khắc phục: Đeo thấu kính hội tụ. Lão thị : Xảy ra ở người lớn tuổi do cơ vòng suy giảm làm khả năng điều tiết kém, điểm \\(C_{c}\\) dời ra xa. Khắc phục: Đeo thấu kính hội tụ để đọc sách/nhìn gần. Loạn thị : Do sự bất cân đối về độ cong của bề mặt giác mạc. Quang sinh học & Lý sinh thị giác : Các nhóm quá trình quang sinh : Quang tổng hợp (quang hợp gluxit, tổng hợp sắc tố), Cảm nhận ánh sáng (thị giác ở động vật, tính hướng sáng ở thực vật) và Phá hủy cấu trúc sinh học (khi hấp thụ tia tử ngoại). Tế bào thụ cảm ánh sáng : Tế bào hình que : Khoảng 130 triệu tế bào, phân bố xa điểm vàng, chứa sắc tố Rodopsin (Scotopsin + 11-cis-retinal), nhạy cảm với ánh sáng yếu (sáng - tối), đỉnh hấp thụ tại \\(510nm\\) . Tế bào hình nón : Khoảng 7 triệu tế bào, tập trung ở điểm vàng, chứa Iodopsin (Photopsin + 11-cis-retinal), nhạy cảm với ánh sáng mạnh và cảm nhận màu sắc. Chu trình Rodopsin : Chiếu sáng làm phân hủy Rodopsin \\(\\rightarrow\\) Lumirodopsin \\(\\rightarrow\\) Metarodopsin I, II \\(\\rightarrow\\) Opxin + trans-retinal, giải phóng điện thế phát động truyền xung thần kinh thị giác lên não. Trong bóng tối, trans-retinal chuyển lại thành 11-cis-retinal nhờ enzyme và năng lượng hóa sinh để tái tạo Rodopsin. Thị giác màu (Thuyết 3 thành phần Lômôlôxốp) : Có 3 loại tế bào nón hấp thụ 3 vùng bước sóng khác nhau: Đỏ ( \\(580 - 650nm\\) ), Lục ( \\(530 - 550nm\\) ) và Lam ( \\(420 - 450nm\\) ). Quang phổ hấp thụ, Phân cực, Nhiễu xạ & Giao thoa : Định luật Bouguer - Lambert - Beer : Khi ánh sáng đơn sắc truyền qua dung dịch có nồng độ \\(C\\) và bề dày \\(l\\) : \\(I = I_{0} \\cdot 10^{- aCl}\\) Mật độ quang : \\(D = \\lg\\left( \\frac{I_{0}}{I} \\right) = aCl\\) , đặc trưng cho khả năng hấp thụ ánh sáng của chất. Phổ hấp thụ \\(D = f(\\lambda)\\) có cực đại \\(\\lambda_{\\max}\\) đặc trưng cho định tính và định lượng chất trong y học (Protein có \\(\\lambda_{\\max} = 280nm\\) , Axit Nucleic có \\(\\lambda_{\\max} = 260nm\\) ). Phân cực ánh sáng : Định luật Malus cho chùm sáng tự nhiên qua kính phân cực và kính phân tích: \\(I_{2} = I_{1}\\cos^{2}\\alpha\\) . Định lý Biot cho dung dịch quang hoạt quay mặt phẳng phân cực: \\(R = \\lbrack\\alpha\\rbrack LC\\) . Giao thoa & Nhiễu xạ : Thí nghiệm giao thoa khe Young cho hệ vân sáng \\(x_{s} = k\\frac{\\lambda D}{a}\\) và vân tối \\(x_{t} = (k + 0,5)\\frac{\\lambda D}{a}\\) . Nhiễu xạ qua lỗ tròn theo đới cầu Fresnel tạo điểm sáng/tối tùy thuộc số đới cầu chứa trong lỗ là lẻ hay chẵn. ## Mục 2: Điện sinh học & Điện học cơ bản Vận chuyển chất qua màng tế bào: Tế bào là một hệ nhiệt động mở, bao bọc bởi màng bán thấm. Sự vận chuyển chất tuân theo các loại Gradient: Gradient nồng độ, thẩm thấu, màng, độ hòa tan và gradient điện hóa. Vận chuyển thụ động : Vận chuyển theo chiều gradient, không tiêu tốn ATP. Gồm: Khuếch tán đơn giản: Nước, chất hòa tan phân tử nhỏ di chuyển qua màng. Khuếch tán liên hợp: Cơ chất (glucose, glycerin, acid amin) gắn vào phân tử chất mang để đi qua màng. Khuếch tán trao đổi: Phân tử chất mang thực hiện vận chuyển vòng khép kín giữa trong và ngoài màng. Vận chuyển tích cực : Vận chuyển ngược chiều gradient nồng độ hoặc điện hóa, bắt buộc có chất mang và tiêu tốn năng lượng ATP. Gồm: Chuyển dịch nhóm: Cơ chất bị biến đổi tạo liên kết đồng hóa trị mới khi qua màng. Vận chuyển tích cực tiên phát: Năng lượng ATP làm biến đổi hình dạng chất mang (ví dụ: bơm \\(Na^{+}/K^{+}\\) -ATPase). Vận chuyển tích cực thứ phát: Sự tích tụ ion tiên phát tạo động lực kéo theo chất thứ phát. Thực bào và ẩm bào : Màng tế bào lõm/lồi bao lấy hạt đại phân tử (thực bào) hoặc giọt dịch hòa tan (ẩm bào) đưa vào trong tế bào, có chọn lọc và tốn ATP. Công điện & Điện thế màng tế bào : Công điện trong cơ thể : Công vận chuyển các ion mang điện trong điện trường màng tế bào, duy trì sự chênh lệch nồng độ ion ( \\(Na^{+},K^{+},Cl^{-}\\) ) tạo ra điện thế nghỉ và điện thế hoạt động. Điện thế hoạt động : Sự biến đổi đột ngột điện thế màng khi bị kích thích, tạo xung động điện sinh học dẫn truyền trong tế bào thần kinh và sợi cơ. Cơ sở Điện học cơ bản : Định luật Coulomb : Lực tương tác tĩnh điện giữa hai điện tích điểm đứng yên: \\(F = \\frac{1}{4\\pi\\epsilon\\epsilon_{0}}\\frac{|q_{1}q_{2}|}{r^{2}} = k\\frac{|q_{1}q_{2}|}{\\epsilon r^{2}}\\) Cường độ điện trường : Vectơ \\(\\overrightarrow{E} = \\frac{\\overrightarrow{F}}{q_{0}}\\) . Điện trường điện tích điểm: \\(E = \\frac{k|q|}{\\epsilon r^{2}}\\) . Điện thế & Hiệu điện thế : Thế năng tĩnh điện \\(W = \\frac{kqq_{0}}{\\epsilon r}\\) . Điện thế \\(V = \\frac{W}{q_{0}} = \\frac{kq}{\\epsilon r}\\) . Hiệu điện thế giữa hai bản kim loại song song mang điện trái dấu: \\(U = E \\cdot d\\) . Ứng dụng Điện trường trong Y học (Kỹ thuật Điện di - Electrophoresis) : Nguyên lý : Đặt các phân tử sinh học mang điện tích (DNA, RNA, Protein) vào môi trường Gel (Agarose) và áp một điện thế một chiều ( \\(DC\\) ) để tạo điện trường đều. Cơ chế phân tách : Phân tử DNA/RNA có nhóm phosphate mang điện tích âm toàn phần. Dưới tác dụng của lực điện trường, DNA/RNA di chuyển từ cực âm sang cực dương. Mạng lưới gel agarose đóng vai trò như một chiếc sàng cơ học: các phân tử có kích thước nhỏ di chuyển nhanh và xa hơn, các phân tử lớn di chuyển chậm và gần hơn. Kết quả giúp phân tách và xác định kích thước các đoạn DNA/RNA trong chẩn đoán RT-PCR sinh học phân tử. ## Mục 3: Vật lý Hạt nhân trong Y học Cấu tạo Hạt nhân & Năng lượng liên kết: Hạt nhân cấu tạo từ \\(Z\\) proton (mang điện tích \\(+ e\\) ) và \\(N\\) neutron (không mang điện) ( \\(A = Z + N\\) nucleon). Kích thước hạt nhân cỡ Femtomet ( \\(1fm = 10^{- 15}m\\) ), bán kính hạt nhân: \\(R = r_{0}A^{1/3}(\\text{với } r_{0} \\approx 1,2 \\div 1,5fm)\\) Độ hụt khối : \\(\\Delta M = (Zm_{p} + Nm_{n}) - M_{hn} > 0\\) . Năng lượng liên kết : \\(\\Delta E = \\Delta M \\cdot c^{2}\\) (với \\(1u \\approx 931,5MeV/c^{2}\\) ). Năng lượng liên kết riêng \\(\\epsilon = \\frac{\\Delta E}{A}\\) đặc trưng cho độ bền vững của hạt nhân. Định luật Phân rã phóng xạ & Các loại bức xạ : Định luật phân rã phóng xạ : \\(N(t) = N_{0}e^{- \\lambda t} = N_{0}2^{- t/T}\\) Chu kỳ bán rã ( \\(T\\) ) : \\(T = \\frac{\\ln 2}{\\lambda} = \\frac{0,693}{\\lambda}\\) . Độ phóng xạ ( \\(H\\) ) : Số hạt nhân phân rã trong một đơn vị thời gian: \\(H(t) = \\lambda N(t) = H_{0}e^{- \\lambda t}\\) . Đơn vị SI: Becquerel ( \\(1Bq = 1\\text{ phân rã}/s\\) ); Curie ( \\(1Ci = 3,7 \\cdot 10^{10}Bq\\) ). Các dạng phân rã : Phân rã Alpha ( \\(\\alpha\\) ) : Phóng ra hạt nhân \\({}_{2}^{4}He\\) , xảy ra ở hạt nhân nặng ( \\(Z > 83\\) ). Phân rã Beta âm ( \\(\\beta^{-}\\) ) : \\({} Z^A X \\rightarrow {} {Z+1}^A Y + {}_{-1}^0 e + \\bar{\\nu}\\) (neutron chuyển thành proton + electron + phản neutrino). Phân rã Beta dương ( \\(\\beta^{+}\\) ) : \\({} Z^A X \\rightarrow {} {Z-1}^A Y + {}_{+1}^0 e + \\nu\\) (proton chuyển thành neutron + positron + neutrino). Phân rã Gamma ( \\(\\gamma\\) ) : Bức xạ sóng điện từ năng lượng cao khi hạt nhân con chuyển từ trạng thái kích thích về trạng thái cơ bản, không thay đổi số khối \\(A\\) và số điện tích \\(Z\\) . Tia \\(\\alpha,\\beta^{+}\\) lệch về phía cực âm, tia \\(\\beta^{-}\\) lệch về cực dương, tia \\(\\gamma\\) truyền thẳng trong điện trường. Khả năng đâm xuyên: \\(\\alpha < \\beta < \\gamma\\) . Tương tác của Bức xạ ion hóa với Vật chất : Bức xạ ion hóa : Bao gồm chùm hạt mang điện ( \\(\\alpha,\\beta,e^{-}\\) ), chùm hạt không mang điện (neutron) và sóng điện từ năng lượng cao (tia X, tia Gamma). Hiệu ứng Quang điện : Photon bức xạ tác động lên electron lớp trong cùng (lớp K), truyền toàn bộ năng lượng giải phóng electron (xảy ra ở dải năng lượng \\(0,01 - 0,1MeV\\) ). Hiệu ứng Compton : Photon bức xạ tác động lên electron lớp ngoài cùng, truyền một phần năng lượng và bị tán xạ với bước sóng lớn hơn (xảy ra ở dải năng lượng \\(0,1 - 10MeV\\) ). Liều lượng bức xạ & Dược chất phóng xạ Y học : Liều hấp thụ ( \\(D\\) ) : Năng lượng bức xạ hấp thụ trên một đơn vị khối lượng mô: \\(1Gy = 1J/kg = 100rad\\) . Liều tương đương ( \\(H\\) ) : \\(H = D \\cdot W_{R}\\) ( \\(W_{R}\\) là trọng số bức xạ), đơn vị Sievert (Sv). Liều hiệu dụng ( \\(E\\) ) : \\(E = H \\cdot W_{T}\\) ( \\(W_{T}\\) là trọng số mô), đơn vị Sievert (Sv). Ứng dụng y học : Sử dụng dược chất phóng xạ (như \\({}^{40}K\\) , \\({}^{22}Na\\) , \\({}^{131}I\\) ) trong chẩn đoán chức năng cơ quan và điều trị ung thư. Máy X-quang và CT-scan dùng tia X tạo ảnh giải phẫu. ## Mục 4: Cơ học & Hệ Xương Khớp dưới góc độ Đòn bẩy Động lực học & Moment lực: Các định luật Newton : Định luật I (quán tính), Định luật II ( \\(\\overrightarrow{F} = m\\overrightarrow{a}\\) ), Định luật III (tác lực và phản lực \\(\\vec{F} {12} = -\\vec{F} {21}\\)). Moment lực đối với trục quay : \\(M = F \\cdot d\\) , với \\(d\\) là cánh tay đòn (khoảng cách từ trục quay đến giá của lực). Điều kiện cân bằng của vật rắn : Cân bằng tịnh tiến ( \\(\\overrightarrow{F} = 0\\) ) và Cân bằng quay ( \\(\\overrightarrow{M} = 0\\) ). Cân bằng cơ thể : Trọng tâm cơ thể (c.g.) nằm ở khoảng 56% chiều cao. Cơ thể cân bằng vững vàng khi đường kéo dài của trọng lực \\(\\overrightarrow{P}\\) đi qua mặt chân đế (tạo bởi hai bàn chân). Khi xách vật nặng một bên tay, cơ thể nghiêng sang bên đối diện và dang tay để giữ giá trọng lực trong mặt chân đế. Hệ Xương Khớp & 3 Loại Đòn Bẩy trong Cơ thể : Cấu trúc đòn bẩy sinh học : Điểm tựa ( \\(T\\) ): Các khớp xương. Lực phát động ( \\(F\\) ): Lực co của các cơ bắp. Lực cản ( \\(P\\) ): Trọng lượng phần cơ thể cần di chuyển hoặc vật nặng cầm trên tay. Cánh tay đòn: Các đoạn xương ( \\(L_{F},L_{P}\\) ). Phương trình cân bằng đòn bẩy: \\[F \\cdot L_F = P \\cdot L_P \\iff \\frac{L_F}{L_P} = \\frac{P}{F} \\quad\\] Phân loại và Ứng dụng trong Y sinh : Đòn bẩy loại I (Điểm tựa \\(T\\) nằm giữa \\(P\\) và \\(F\\) ) : Cấu trúc : Điểm tựa ở giữa. Ứng dụng : Cân bằng đầu trên cột sống . Điểm tựa \\(T\\) là khớp chẩm - đội (lồi cầu xương chẩm và đốt sống cổ C1); Lực cản \\(P\\) là trọng lượng đầu có xu hướng gục về trước; Lực phát động \\(F\\) do cơ gáy co kéo. Đòn bẩy loại II (Lực cản \\(P\\) nằm giữa \\(T\\) và \\(F\\) ) : Cấu trúc : Lực cản ở giữa. Ứng dụng : Động tác kiễng chân . Điểm tựa \\(T\\) ở đầu mút xương bàn chân tiếp xúc mặt đất; Lực cản \\(P\\) là trọng lượng cơ thể đè xuống qua xương cẳng chân; Lực phát động \\(F\\) do cơ dép và cơ sinh đôi kéo gân Asin bám vào xương gót. Vì \\(L_{F} > L_{P}\\) nên được gọi là đòn bẩy sức mạnh (nâng được tải trọng cơ thể rất lớn). Đòn bẩy loại III (Lực phát động \\(F\\) nằm giữa \\(T\\) và \\(P\\) ) : Cấu trúc : Lực phát động ở giữa. Ứng dụng : Khớp khuỷu tay (cẳng tay) . Điểm tựa \\(T\\) tại khớp khuỷu; Lực phát động \\(F\\) do cơ nhị đầu bám vào điểm trên xương cẳng tay; Lực cản \\(P\\) là trọng lượng cẳng tay, bàn tay và vật nặng. Vì \\(L_{F} < L_{P}\\) nên lực co cơ phải lớn hơn lực cản, nhưng giúp di chuyển vật nhanh với biên độ rộng ( đòn bẩy tốc độ ). Phân tích Ca lâm sàng Y sinh (Gãy rút lồi củ trước xương chày) : Bệnh cảnh : Bệnh nhân nam 65 kg gánh tạ 150 kg (tổng lực cản \\(P = (65 + 150) \\times 10 = 2150N\\) , cánh tay đòn lực cản \\(L_{P} = 35cm\\) ). Cơ chế vật lý : Khi đứng dậy, cơ tứ đầu đùi co rất mạnh tạo lực phát động \\(F\\) truyền qua gân bánh chè bám vào lồi củ trước xương chày (cánh tay đòn lực phát động \\(L_{F} = 5cm\\) ). Tính toán lực : Cân bằng moment lực tác dụng lên 1 chân: \\[\\frac{1}{2} P \\cdot L_P = F \\cdot L_F \\iff \\frac{1}{2} \\cdot 2150 \\cdot 0,35 = F \\cdot 0,05 \\implies F = 7525 \\text{ N} \\quad\\] → Kết luận y học : Lực phát động do cơ tứ đầu đùi sinh ra ( \\(7525N\\) ) vượt quá giới hạn chịu lực tối đa của xương lồi củ trước chày ( \\(5200N\\) , khoảng 8 lần trọng lượng cơ thể), dẫn đến hiện tượng gãy bứt/gãy rút lồi củ chày. Phân tích các dạng Công tồn tại trong Cơ thể sống : Công hóa học : Sinh ra khi tổng hợp các hợp chất cao phân tử (protein, acid nucleic, ATP) từ các chất phân tử nhỏ. Công cơ học : Sinh ra khi co cơ dịch chuyển các bộ phận/cơ quan hoặc toàn bộ cơ thể (hiệu suất co cơ đạt \\(20 - 40\\%\\) ). Công thẩm thấu : Sinh ra khi vận chuyển tích cực các chất qua màng ngược chiều gradient nồng độ. Công điện : Sinh ra khi vận chuyển các ion ngược gradient điện hóa, duy trì điện thế màng và dẫn truyền xung động thần kinh. ## 1. Mẹo Học Tập & Kinh Nghiệm Thi Môn Vật Lý Đại Cương Đặc điểm và Cấu trúc Đánh giá Môn học : Môn học chiếm 2 tín chỉ, cung cấp nền tảng vật lý cốt lõi ứng dụng trên cơ thể sống và thiết bị y tế. Điểm thi Giữa kỳ (chiếm 30%): Thi theo hình thức tự luận/làm bài theo nhóm nộp lại cho giảng viên. Điểm thi Cuối kỳ (chiếm 70%): Thi trắc nghiệm 40 câu trên máy tính, bao quát toàn bộ chương trình. Chiến thuật Học & Làm bài Thi hiệu quả : Chuẩn bị tài liệu thi : Thi cuối kỳ được sử dụng sách gốc/tài liệu mở. Tuy nhiên, không nên note quá chi tiết vào sách vì giảng viên sẽ kiểm tra và thu sách nếu vi phạm. Mẹo làm bài thi đề mở : Cần thuộc lòng các công thức cơ bản và nhận dạng bài tập ngay trong slide. Nếu câu nào cũng lật sách tìm công thức sẽ bị thiếu thời gian. Phương pháp ôn tập : Bám sát 100% slide giảng dạy và bài tập thầy cô cho, không ôn tràn lan các tài liệu bên ngoài. Học hiểu bản chất hiện tượng và công thức thay vì học thuộc lòng đáp án trắc nghiệm. ## 2. Phân Loại Dạng Bài Tập & Tips Giải Theo Chủ Đề Chủ đề 1: Quang Sinh Học & Quang Hình Học Dạng 1.1: Khúc xạ, Phản xạ toàn phần và Bản mặt song song : Công thức gốc : Định luật khúc xạ \\(n_{1}\\sin i_{1} = n_{2}\\sin i_{2}\\) ; Góc giới hạn phản xạ toàn phần \\(\\sin i_{gh} = \\frac{n_{2}}{n_{1}}\\) (với \\(n_{1} > n_{2}\\) ). Tips giải nhanh bài toán góc trông ảo ở đáy nước : Nhìn hòn sỏi/đáy bể nước sâu \\(h\\) theo phương gần vuông góc, độ sâu ảo \\(h'\\) mà mắt thấy được tính bằng \\(h' = \\frac{h}{n}\\) (với nước có \\(n = \\frac{4}{3}\\) , nếu bể sâu \\(1,2m \\Rightarrow h' = 0,9m\\) ). Tips bài toán tia phản xạ vuông góc tia khúc xạ : Khi \\(i + r = 90^{\\circ}\\) , áp dụng nhanh công thức \\(n = \\tan i\\) . Dạng 1.2: Kính Phân Cực & Định luật Malus, Biot : Công thức gốc : Cường độ sáng sau khi qua kính phân cực \\(T_{1}\\) : \\(I_{1} = \\frac{I_{0}}{2}\\) . Cường độ sáng sau kính phân tích \\(T_{2}\\) : \\(I_{2} = I_{1}\\cos^{2}\\alpha = \\frac{I_{0}}{2}\\cos^{2}\\alpha\\) . Nếu kính hấp thụ \\(k\\%\\) ánh sáng: \\(I_{1} = \\frac{I_{0}(1 - k)}{2}\\) , \\(I_{2} = I_{1}(1 - k)\\cos^{2}\\alpha\\) . Định lý Biot: \\(R = \\lbrack\\alpha\\rbrack LC\\) . Tips giải nhanh : Khi bài toán yêu cầu tìm góc \\(\\alpha\\) để cường độ sáng giảm 4 lần sau khi qua 2 kính (không hấp thụ): \\(\\frac{I_{0}}{2}\\cos^{2}\\alpha = \\frac{I_{0}}{4} \\Rightarrow \\cos^{2}\\alpha = \\frac{1}{2} \\Rightarrow \\alpha = 45^{\\circ}\\) . Dạng 1.3: Thấu Kính & Tật Khúc Xạ Mắt (Ca lâm sàng Y học) : Công thức gốc : Độ tụ \\(D = \\frac{1}{f} = (n - 1)\\left( \\frac{1}{R_{1}} - \\frac{1}{R_{2}} \\right)\\) . Kính sửa tật cận thị: \\(D_{k} = - \\frac{1}{OC_{v}}\\) . Tips chẩn đoán ca lâm sàng đo thị lực : Khi thử thị lực nhìn xa: Đeo kính hội tụ nhìn mờ hơn, đeo kính phân kỳ nhìn rõ hơn \\(\\rightarrow\\) Mắt bị Cận thị . Khi thử thị lực nhìn gần (người lớn tuổi): Khoảng nhìn rõ bị dời ra xa ( \\(40 - 100cm\\) ) \\(\\rightarrow\\) Mắt bị Lão thị . Dạng 1.4: Quang Phổ Hấp Thụ & Định luật Bouguer - Lambert - Beer : Công thức gốc : \\(I = I_{0} \\cdot 10^{- aCl}\\) ; Mật độ quang \\(D = \\lg\\left( \\frac{I_{0}}{I} \\right) = aCl\\) . Tips ứng dụng Y học : Bước sóng hấp thụ cực đại \\(\\lambda_{\\max}\\) dùng để định tính nhận biết chất (Protein có \\(\\lambda_{\\max} = 280nm\\) , Axit Nucleic có \\(\\lambda_{\\max} = 260nm\\) ); Mật độ quang \\(D\\) tại đỉnh phổ dùng để định lượng nồng độ chất trong dung dịch sinh học. Chủ đề 2: Điện Sinh Học & Điện Học Dạng 2.1: Tương Tác Điện Tích & Điện Trường : Công thức gốc : Lực Coulomb \\(F = k\\frac{|q_{1}q_{2}|}{\\epsilon r^{2}}\\) ; Cường độ điện trường \\(E = k\\frac{|q|}{\\epsilon r^{2}}\\) ; Hiệu điện thế giữa 2 bản song song \\(U = E \\cdot d\\) . Tips giải nhanh : Lực tĩnh điện trong nguyên tử Hydro ở trạng thái cơ bản ( \\(r = 5,29 \\cdot 10^{- 11}m\\) ): \\(F = \\frac{ke^{2}}{r^{2}} \\approx 8,25 \\cdot 10^{- 8}N\\) . Dạng 2.2: Kỹ Thuật Điện Di Gel (Electrophoresis) : Tips lý thuyết : Phân tử DNA/RNA mang điện tích âm toàn phần do nhóm phosphate, dưới tác dụng của điện trường đều \\(E\\) , phân tử di chuyển từ cực âm sang cực dương. Gel agarose đóng vai trò ma trận sàng lọc: phân tử kích thước nhỏ di chuyển nhanh và xa hơn phân tử lớn. Chủ đề 3: Vật Lý Hạt Nhân & Bức Xạ Y Học Dạng 3.1: Phân Rã Phóng Xạ & Độ Phóng Xạ : Công thức gốc : \\(N(t) = N_{0} \\cdot 2^{- t/T}\\) ; Độ phóng xạ \\(H(t) = \\lambda N(t) = H_{0} \\cdot 2^{- t/T}\\) với \\(\\lambda = \\frac{\\ln 2}{T}\\) . Đổi đơn vị: \\(1Ci = 3,7 \\cdot 10^{10}Bq\\) . Tips giải nhanh : Tính khối lượng chất phóng xạ từ độ phóng xạ \\(H\\) : \\(m = \\frac{H \\cdot T \\cdot M}{\\ln 2 \\cdot N_{A}}\\) (lưu ý chu kỳ bán rã \\(T\\) bắt buộc phải đổi ra đơn vị giây). Dạng 3.2: Liều Bức Xạ & Tương Tác Vật Chất : Công thức gốc : Liều hấp thụ \\(D = \\frac{E}{m}\\) ( \\(1Gy = 100rad\\) ); Liều tương đương \\(H = D \\cdot W_{R}\\) (Sv). Tips phân biệt hiệu ứng : Hiệu ứng Quang điện xảy ra ở dải năng lượng thấp ( \\(0,01 - 0,1MeV\\) ), photon truyền toàn bộ năng lượng cho electron lớp K. Hiệu ứng Compton xảy ra ở dải năng lượng cao hơn ( \\(0,1 - 10MeV\\) ), photon truyền một phần năng lượng cho electron lớp ngoài cùng và bị tán xạ. Chủ đề 4: Cơ Học, Đòn Bẩy Sinh Học & Cơ Học Chất Lưu Dạng 4.1: Cân Bằng Đòn Bẩy Sinh Học & Moment Lực : Công thức gốc : \\(M = F \\cdot d\\) ; Phương trình cân bằng đòn bẩy: \\(F \\cdot L_{F} = P \\cdot L_{P} \\Rightarrow F = P\\frac{L_{P}}{L_{F}}\\) . Tips phân tích ca lâm sàng gãy xương : Xác định loại đòn bẩy của khớp; Lực cản \\(P = (m_{\\text{người}} + m_{\\text{tạ}}) \\cdot g\\) . Lực co cơ phát động tính bằng \\(F = \\frac{P \\cdot L_{P}}{2 \\cdot L_{F}}\\) (cho 1 chân). Nếu \\(F\\) vượt quá giới hạn chịu lực của lồi củ xương ( \\(\\approx 8 \\times m_{\\text{người}} \\cdot g\\) ) thì kết luận gãy bứt. Dạng 4.2: Cơ Học Chất Lưu (Phương trình Liên tục, Bernoulli, Poiseuille, Venturi) : Công thức gốc : Phương trình liên tục: \\(Q = S_{1}v_{1} = S_{2}v_{2} = const\\) . Phương trình Bernoulli: \\(p_{1} + \\frac{1}{2}\\rho v_{1}^{2} + \\rho gh_{1} = p_{2} + \\frac{1}{2}\\rho v_{2}^{2} + \\rho gh_{2}\\) . Định luật Poiseuille: \\(Q = \\frac{\\pi r^4 (p_1 - p_2)}{8 \\eta L} \\implies \\Delta p = \\frac{8 \\eta L Q}{\\pi r^4}\\). Tips giải nhanh bài toán Ống Venturi đo tốc độ chất lỏng : Độ chênh áp suất tĩnh \\(\\Delta p = p_{1} - p_{2} = \\frac{1}{2}\\rho v_{1}^{2}\\left\\lbrack \\left( \\frac{S_{1}}{S_{2}} \\right)^{2} - 1 \\right\\rbrack = \\rho g\\Delta h\\) . ";
+const tx=el=>{try{window.MathJax&&MathJax.typesetPromise&&MathJax.typesetPromise(el?[el]:undefined)}catch(e){}};
+const sh=a=>[...a].sort(()=>Math.random()-.5),nm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/gi,'d').toLowerCase().replace(/[^a-z0-9]/g,'');
+function page(p){$$('.pg').forEach(e=>e.classList.toggle('on',e.id==p));$$('nav button').forEach(b=>b.classList.toggle('on',b.dataset.p==p));scrollTo(0,0);if(p=='exam'&&!$('#ez').innerHTML)examStart();tx($('#'+p))}
+$$('nav button').forEach(b=>b.onclick=()=>page(b.dataset.p));document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)page(g.dataset.go)});
+/* nền hạt */
+{const c=$('#bgc'),x=c.getContext('2d');let W,Hh,P=[];const rs=()=>{W=c.width=innerWidth;Hh=c.height=innerHeight};rs();addEventListener('resize',rs);for(let i=0;i<55;i++)P.push({x:Math.random()*W,y:Math.random()*Hh,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.8+.6});
+(function L(){x.clearRect(0,0,W,Hh);for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>Hh)p.vy*=-1;x.fillStyle='rgba(0,242,254,.55)';x.beginPath();x.arc(p.x,p.y,p.r,0,6.3);x.fill()}requestAnimationFrame(L)})()}
+/* pháo giấy */
+function confetti(){const c=$('#cf'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const cl=['#00F2FE','#4FACFE','#8B5CF6','#FDE047','#34D399','#FB7185'],P=Array.from({length:150},()=>({x:innerWidth/2,y:innerHeight*.35,vx:(Math.random()-.5)*16,vy:Math.random()*-14-3,s:Math.random()*8+4,c:cl[Math.random()*6|0],r:Math.random()*6}));let f=0;(function L(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.r+=.2;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore()});if(++f<170)requestAnimationFrame(L);else x.clearRect(0,0,c.width,c.height)})()}
+/* lý thuyết */
+let grp='core';function filt(){const k=nm($('#q').value);$$('.acc').forEach(a=>a.style.display=(a.dataset.g==grp||k)&&(!k||nm(a.textContent).includes(k))?'':'none')}
+$$('.tab').forEach(t=>t.onclick=()=>{grp=t.dataset.g;$$('.tab').forEach(x=>x.classList.toggle('on',x==t));filt()});$('#q').oninput=filt;filt();
+$('#all').onclick=()=>{const v=$$('.acc').filter(a=>a.style.display!='none');const o=v.some(a=>!a.open);v.forEach(a=>a.open=o)};
+/* đề thi */
+const EX=[
+["Khi tia phản xạ vuông góc với tia khúc xạ (\\(i+r=90^{\\circ}\\)), áp dụng nhanh công thức nào?",["\\(n=\\sin i\\)","\\(n=\\tan i\\)","\\(n=\\cos i\\)","\\(n=\\frac{1}{\\tan i}\\)"],1,"Tips Dạng 1.1: khi \\(i+r=90^{\\circ}\\) thì \\(n=\\tan i\\)."],
+["Nhìn xuống đáy bể nước sâu \\(1{,}2m\\) theo phương gần vuông góc (\\(n=\\frac{4}{3}\\)), độ sâu ảo \\(h'=\\frac{h}{n}\\) bằng:",["\\(1{,}6m\\)","\\(1{,}2m\\)","\\(0{,}9m\\)","\\(0{,}75m\\)"],2,"\\(h'=\\frac{1{,}2}{4/3}=0{,}9m\\)."],
+["Hai kính phân cực không hấp thụ, cường độ sáng giảm 4 lần so với \\(I_0\\). Góc \\(\\alpha\\) giữa hai kính là:",["\\(30^{\\circ}\\)","\\(60^{\\circ}\\)","\\(45^{\\circ}\\)","\\(90^{\\circ}\\)"],2,"\\(\\frac{I_0}{2}\\cos^2\\alpha=\\frac{I_0}{4}\\Rightarrow\\cos^2\\alpha=\\frac{1}{2}\\Rightarrow\\alpha=45^{\\circ}\\)."],
+["Protein có bước sóng hấp thụ cực đại \\(\\lambda_{\\max}\\) bằng:",["\\(260nm\\)","\\(510nm\\)","\\(280nm\\)","\\(580nm\\)"],2,"Protein \\(\\lambda_{\\max}=280nm\\); Axit Nucleic \\(260nm\\)."],
+["Tế bào hình que chứa Rodopsin có đỉnh hấp thụ tại:",["\\(420nm\\)","\\(510nm\\)","\\(530nm\\)","\\(650nm\\)"],1,"Tế bào hình que: đỉnh hấp thụ tại \\(510nm\\)."],
+["Một người \\(60kg\\) kiễng chân bằng một chân (\\(L_P=10cm\\), \\(L_F=15cm\\), \\(g=10m/s^2\\)). Lực co cơ gót chân \\(F\\) là:",["\\(150N\\)","\\(300N\\)","\\(450N\\)","\\(200N\\)"],3,"\\(P_1=300N\\); \\(F\\times0{,}15=300\\times0{,}10\\Rightarrow F=200N\\)."],
+["Động mạch bán kính \\(r_1=4mm\\) thu hẹp còn \\(r_2=3mm\\). Tỉ số \\(\\frac{\\Delta p_2}{\\Delta p_1}\\) bằng:",["\\(1{,}33\\)","\\(1{,}78\\)","\\(0{,}32\\)","\\(3{,}16\\)"],3,"\\(\\left(\\frac{4}{3}\\right)^4=\\frac{256}{81}\\approx3{,}16\\)."],
+["Ghế Giucốpxki: \\(I_1=5{,}06\\), \\(\\omega_1=1{,}2rad/s\\), \\(I_2=2{,}66\\,kg\\cdot m^2\\). Tốc độ góc \\(\\omega_2\\) xấp xỉ:",["\\(0{,}63rad/s\\)","\\(2{,}283rad/s\\)","\\(3{,}5rad/s\\)","\\(1{,}2rad/s\\)"],1,"\\(I_1\\omega_1=I_2\\omega_2\\Rightarrow\\omega_2\\approx2{,}283rad/s\\)."],
+["\\(^{131}I\\) có \\(T=8\\) ngày, độ phóng xạ ban đầu \\(10mCi\\). Sau \\(24\\) ngày còn lại:",["\\(5mCi\\)","\\(2{,}5mCi\\)","\\(3{,}33mCi\\)","\\(1{,}25mCi\\)"],3,"\\(t=3T\\Rightarrow H=10\\times2^{-3}=1{,}25mCi\\)."],
+["Ống nước thu hẹp \\(d_1=4cm\\to d_2=2cm\\), \\(v_1=0{,}6m/s\\). Vận tốc \\(v_2\\) là:",["\\(1{,}2m/s\\)","\\(4{,}8m/s\\)","\\(2{,}4m/s\\)","\\(0{,}15m/s\\)"],2,"\\(\\frac{S_1}{S_2}=4\\Rightarrow v_2=0{,}6\\times4=2{,}4m/s\\)."]];
+let ei=0,es=0;
+function examStart(){ei=es=0;$('#ez').innerHTML='<div class="glass q" style="text-align:center"><h2 class="pt">Đề trắc nghiệm ôn tập</h2><p class="sub">10 câu lấy từ phần Tips và đáp án đề giữa kỳ trong tài liệu.</p><button class="btn" id="eg">Bắt đầu</button></div>';$('#eg').onclick=eq;tx($('#ez'))}
+function eq(){const q=EX[ei];$('#ez').innerHTML=`<div class="stat">Câu <b>${ei+1}</b>/${EX.length} · Điểm: <b>${es}</b></div><div class="pbar"><i style="width:${ei/EX.length*100}%"></i></div><div class="glass q"><h3>${q[0]}</h3>${q[1].map((o,i)=>`<button class="opt" data-i="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}<div id="exl"></div></div>`;$$('.opt').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;$$('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.i==q[2])x.classList.add('ok')});if(i==q[2])es++;else b.classList.add('no');$('#exl').innerHTML=`<div class="ex">${q[3]}</div><div class="row"><button class="btn" id="nx">${ei<EX.length-1?'Câu tiếp ›':'Nộp bài 🎉'}</button></div>`;$('#nx').onclick=()=>{if(++ei<EX.length)eq();else done()};tx($('#ez'))});tx($('#ez'))}
+function done(){confetti();$('#ez').innerHTML=`<div class="pbar"><i style="width:100%"></i></div><div class="glass q" style="text-align:center"><h2 class="pt">Hoàn thành! 🎉</h2><p style="font-size:44px" class="hd">${es}/${EX.length}</p><p class="sub">${es>=8?'Đỉnh luôn!':es>=5?'Khá ổn, ôn thêm chút nữa nhé.':'Cố lên, xem lại phần lý thuyết rồi thử lại!'}</p><button class="btn" id="eg">Làm lại</button></div>`;$('#eg').onclick=()=>{examStart();eq()}}
+/* modal */
+const ov=$('#ov'),md=$('#md');function open(h,big){md.className='md glass'+(big?' big':'');md.innerHTML='<button class="x">×</button>'+h;ov.classList.add('on');md.querySelector('.x').onclick=close;tx(md)}function close(){ov.classList.remove('on');md.innerHTML='';clearInterval(T)}ov.onclick=e=>{if(e.target==ov)close()};let T;
+/* games */
+const FC=[["Định luật khúc xạ","\\(n_{1}\\sin i_{1} = n_{2}\\sin i_{2}\\)"],["Góc giới hạn phản xạ toàn phần","\\(\\sin i_{gh} = \\frac{n_{2}}{n_{1}}\\) (với \\(n_{1} > n_{2}\\))"],["Công thức thấu kính","\\(\\frac{1}{f} = \\frac{1}{s'} - \\frac{1}{s} = (n - 1)\\left( \\frac{1}{R_{1}} - \\frac{1}{R_{2}} \\right)\\)"],["Kính sửa tật cận thị","\\(D_{k} = - \\frac{1}{OC_{v}}\\)"],["Định luật Bouguer - Lambert - Beer","\\(I = I_{0} \\cdot 10^{- aCl}\\)"],["Mật độ quang","\\(D = \\lg\\left( \\frac{I_{0}}{I} \\right) = aCl\\)"],["Định luật Malus","\\(I_{2} = I_{1}\\cos^{2}\\alpha\\)"],["Định luật Coulomb","\\(F = k\\frac{|q_{1}q_{2}|}{\\epsilon r^{2}}\\)"],["Định luật phân rã phóng xạ","\\(N(t) = N_{0}e^{- \\lambda t} = N_{0}2^{- t/T}\\)"],["Chu kỳ bán rã","\\(T = \\frac{\\ln 2}{\\lambda} = \\frac{0,693}{\\lambda}\\)"],["Độ phóng xạ","\\(H(t) = \\lambda N(t) = H_{0}e^{- \\lambda t}\\); \\(1Ci = 3,7 \\cdot 10^{10}Bq\\)"],["Phương trình cân bằng đòn bẩy","\\(F \\cdot L_{F} = P \\cdot L_{P}\\)"],["Định luật Poiseuille","\\(Q = \\frac{\\pi r^{4}(p_{1} - p_{2})}{8\\eta L}\\)"],["Phương trình Bernoulli","\\(p_{1} + \\frac{1}{2}\\rho v_{1}^{2} + \\rho gh_{1} = p_{2} + \\frac{1}{2}\\rho v_{2}^{2} + \\rho gh_{2}\\)"]];
+const GM=[{id:'fc',n:'Flash Card 3D',e:'🃏',d:'Lật thẻ học tên định luật ↔ công thức.',a:['#00F2FE','#4FACFE'],r:['Nhìn tên định luật, nhớ công thức rồi bấm vào thẻ để lật.','Chọn "Đã nhớ" hoặc "Chưa nhớ" để tính điểm.','Dễ: 6 thẻ · Bình thường: 10 thẻ · Khó: 14 thẻ, mỗi thẻ chỉ có 12 giây.']},
+{id:'lab',n:'Physics Lab',e:'🧪',d:'Kéo thanh trượt, xem đòn bẩy và phân rã chạy thật.',a:['#8B5CF6','#4FACFE'],r:['Kéo các thanh trượt để thay đổi thông số mô phỏng.','Thử thách đòn bẩy: chỉnh \\(L_F\\) để lực \\(F\\) đạt mục tiêu.','Độ khó quyết định sai số cho phép (15% / 5% / 1%); Khó còn ẩn số đo \\(F\\).']},
+{id:'es',n:'Physics Escape Room',e:'🚪',d:'Giải 4 bài tập để mở 4 cánh cửa.',a:['#FB7185','#8B5CF6'],r:['Mỗi cửa là một bài tập: nhập đáp án số đúng để mở.','Đáp án chấp nhận sai số 2%, dùng dấu phẩy hoặc chấm đều được.','Dễ: có gợi ý công thức, 4 phút · Bình thường: 3 phút · Khó: không gợi ý, 2 phút.']},
+{id:'cw',n:'Physics Crossword',e:'🔤',d:'Ô chữ thuật ngữ Vật lý lý sinh.',a:['#34D399','#4FACFE'],r:['Đọc gợi ý và điền thuật ngữ vào các ô (không cần gõ dấu).','Ô đúng sẽ chuyển xanh.','Dễ: tặng sẵn chữ cái đầu · Bình thường: chỉ hiện số ô · Khó: thêm giới hạn 5 phút.']}];
+$('#gg').innerHTML=GM.map(g=>`<div class="glass hov gcard" data-g="${g.id}"><div class="gth"><svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="t${g.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g.a[0]}"/><stop offset="1" stop-color="${g.a[1]}"/></linearGradient></defs><rect width="300" height="150" fill="url(#t${g.id})" opacity=".35"/><circle cx="240" cy="30" r="60" fill="${g.a[0]}" opacity=".25"/><circle cx="40" cy="140" r="70" fill="${g.a[1]}" opacity=".25"/><path d="M0 110 Q75 70 150 105 T300 90" stroke="#fff" stroke-opacity=".35" fill="none" stroke-width="2"/><text x="150" y="95" font-size="64" text-anchor="middle">${g.e}</text></svg></div><div class="gb"><span class="tag">Gamification</span><h3>${g.n}</h3><p>${g.d}</p><button class="btn">Chơi</button></div></div>`).join('');
+$$('.gcard').forEach(c=>c.onclick=()=>{const g=GM.find(x=>x.id==c.dataset.g);open(`<h2>${g.e} ${g.n}</h2><p class="sub">Bảng luật chơi</p><ul>${g.r.map(r=>`<li>${r}</li>`).join('')}</ul><p style="margin-top:14px;font-weight:700">Chọn độ khó:</p><div class="diff">${['Dễ','Bình thường','Khó'].map((d,i)=>`<button data-d="${i}">${d}</button>`).join('')}</div>`);$$('.diff button').forEach(b=>b.onclick=()=>run(g.id,+b.dataset.d))});
+const run=(id,d)=>({fc:gFc,lab:gLab,es:gEs,cw:gCw})[id](d);
+function gFc(d){const n=[6,10,14][d],dk=sh(FC).slice(0,n);let i=0,ok=0,t=12;const R=()=>{clearInterval(T);if(i>=dk.length){confetti();open(`<h2>Xong! 🎉</h2><p class="hd" style="font-size:40px">${ok}/${n}</p><p class="sub">thẻ đã nhớ</p><button class="btn" onclick="gFc(${d})">Chơi lại</button>`,1);return}t=12;open(`<div class="stat">Thẻ <b>${i+1}</b>/${n} · Nhớ: <b>${ok}</b>${d==2?' · ⏱ <b id="tm">12</b>s':''}</div><div class="pbar"><i style="width:${i/n*100}%"></i></div><div class="fcw"><div class="fc" id="fcd"><div class="ft">${dk[i][0]}</div><div class="bk">${dk[i][1]}</div></div></div><p class="sub" style="text-align:center">Bấm thẻ để lật</p><div class="row"><button class="btn gh" id="no">Chưa nhớ</button><button class="btn" id="yes">Đã nhớ</button></div>`,1);$('#fcd').onclick=()=>$('#fcd').classList.toggle('flip');$('#no').onclick=()=>{i++;R()};$('#yes').onclick=()=>{ok++;i++;R()};if(d==2)T=setInterval(()=>{$('#tm').textContent=--t;if(t<=0){i++;R()}},1000)};R()}
+window.gFc=gFc;
+function gLab(d){const tol=[.15,.05,.01][d];let tg=0,Pp=2150,Lp=35,Lf=5,Th=8,tt=24;
+open(`<h2>🧪 Physics Lab</h2><div class="tabs"><button class="tab on" data-l="a">Đòn bẩy</button><button class="tab" data-l="b">Phân rã phóng xạ</button></div><div id="la"><canvas class="cv" id="c1" width="800" height="240"></canvas><div class="sl"><span>Lực cản \\(P\\) (N)</span><input type="range" id="s1" min="100" max="3000" value="2150"><b id="v1"></b></div><div class="sl"><span>\\(L_P\\) (cm)</span><input type="range" id="s2" min="5" max="60" value="35"><b id="v2"></b></div><div class="sl"><span>\\(L_F\\) (cm)</span><input type="range" id="s3" min="2" max="20" step=".5" value="5"><b id="v3"></b></div><div class="door" id="ch"></div><button class="btn gh" id="rn">Đổi mục tiêu</button></div><div id="lb" style="display:none"><canvas class="cv" id="c2" width="800" height="260"></canvas><div class="sl"><span>Chu kỳ bán rã \\(T\\) (ngày)</span><input type="range" id="s4" min="1" max="30" value="8"><b id="v4"></b></div><div class="sl"><span>Thời gian \\(t\\) (ngày)</span><input type="range" id="s5" min="0" max="90" value="24"><b id="v5"></b></div><div class="door" id="r2"></div></div>`,1);
+$$('.tabs .tab').forEach(b=>b.onclick=()=>{$$('.tabs .tab').forEach(x=>x.classList.toggle('on',x==b));$('#la').style.display=b.dataset.l=='a'?'':'none';$('#lb').style.display=b.dataset.l=='b'?'':'none';dr()});
+const nt=()=>{tg=Math.round(Pp*Lp/(2+Math.random()*16)/10)*10;dr()};
+function dr(){Pp=+$('#s1').value;Lp=+$('#s2').value;Lf=+$('#s3').value;Th=+$('#s4').value;tt=+$('#s5').value;const F=Pp*Lp/Lf;$('#v1').textContent=Pp;$('#v2').textContent=Lp;$('#v3').textContent=Lf;$('#v4').textContent=Th;$('#v5').textContent=tt;if(!tg)tg=Math.round(Pp*Lp/12/10)*10;
+const c=$('#c1').getContext('2d');c.clearRect(0,0,800,240);c.strokeStyle='#00F2FE';c.lineWidth=8;c.beginPath();c.moveTo(80,120);c.lineTo(720,120);c.stroke();c.fillStyle='#8B5CF6';c.beginPath();c.moveTo(80,125);c.lineTo(55,190);c.lineTo(105,190);c.fill();const sc=640/80,xf=80+Lf*sc*1.6,xp=80+Lp*sc*0.0+Math.min(Lp,60)*8*1.0;c.fillStyle='#FB7185';c.fillRect(Math.min(xp,700)-18,120-Math.min(60,Pp/50+14)-8,36,Math.min(60,Pp/50+14));c.fillStyle='#34D399';c.fillRect(Math.min(xf,700)-4,120,8,Math.min(90,F/50+10));c.fillStyle='#fff';c.font='14px sans-serif';c.fillText('T',72,212);c.fillText('P',Math.min(xp,700)-4,70);c.fillText('F',Math.min(xf,700)-4,230);
+$('#ch').innerHTML=`🎯 Thử thách: chỉnh \\(L_F\\) để lực co cơ \\(F\\) ≈ <b>${tg} N</b> (±${tol*100}%)<br>${d==2?'F = ?':'F = <b>'+F.toFixed(0)+' N</b>'} ${Math.abs(F-tg)<=tg*tol?' ✅ Đạt!':''}`;
+const c2=$('#c2').getContext('2d');c2.clearRect(0,0,800,260);c2.strokeStyle='#4FACFE';c2.lineWidth=3;c2.beginPath();for(let x=0;x<=90;x++){const y=240-Math.pow(2,-x/Th)*220;x?c2.lineTo(40+x*8,y):c2.moveTo(40,y)}c2.stroke();const yy=240-Math.pow(2,-tt/Th)*220;c2.fillStyle='#00F2FE';c2.beginPath();c2.arc(40+tt*8,yy,8,0,6.3);c2.fill();$('#r2').innerHTML=`\\(N(t)=N_0\\,2^{-t/T}\\) → còn <b>${(Math.pow(2,-tt/Th)*100).toFixed(2)}%</b> sau <b>${(tt/Th).toFixed(2)}</b> chu kỳ bán rã`;tx($('#ch'));tx($('#r2'))}
+$$('#md input[type=range]').forEach(s=>s.oninput=dr);$('#rn').onclick=nt;tg=0;dr()}
+function gEs(d){const Q=[["Một người \\(60kg\\) kiễng chân bằng một chân: \\(L_P=10cm\\), \\(L_F=15cm\\), \\(g=10m/s^2\\). Tính lực co cơ gót \\(F\\) (N).",200,"\\(P_1=\\frac12mg\\); \\(F\\cdot L_F=P_1\\cdot L_P\\)"],["Bể nước sâu \\(1{,}2m\\), \\(n=\\frac43\\). Độ sâu ảo \\(h'\\) (m)?",0.9,"\\(h'=\\frac{h}{n}\\)"],["Động mạch \\(r_1=4mm\\) thu hẹp còn \\(r_2=3mm\\). Tỉ số \\(\\frac{\\Delta p_2}{\\Delta p_1}\\)?",3.16,"\\(\\Delta p\\sim\\frac{1}{r^4}\\)"],["\\(^{131}I\\), \\(T=8\\) ngày, \\(H_0=10mCi\\). Độ phóng xạ (mCi) sau \\(24\\) ngày?",1.25,"\\(H=H_0\\cdot2^{-t/T}\\)"]];let tm=[240,180,120][d],o=0;
+open(`<h2>🚪 Physics Escape Room</h2><div class="stat">⏱ <b id="et">${tm}</b>s · Cửa mở: <b id="eo">0</b>/4</div>${Q.map((q,i)=>`<div class="door ${i?'lock':''}" id="d${i}"><p><b>Cửa ${i+1}.</b> ${q[0]}</p>${d==0?`<p class="sub">💡 ${q[2]}</p>`:''}<input id="a${i}" placeholder="Đáp án" ${i?'disabled':''}> <button class="btn" data-i="${i}">Mở</button><span id="m${i}"></span></div>`).join('')}`,1);
+$$('.door .btn').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,v=parseFloat($('#a'+i).value.replace(',','.'));if(Math.abs(v-Q[i][1])<=Math.abs(Q[i][1])*.02){$('#d'+i).classList.add('open');$('#a'+i).disabled=b.disabled=true;$('#m'+i).textContent=' ✅';o++;$('#eo').textContent=o;const n=$('#d'+(i+1));if(n){n.classList.remove('lock');n.querySelector('input').disabled=false}else{clearInterval(T);confetti();$('#m'+i).textContent=' ✅ Thoát phòng thành công! 🎉'}}else $('#m'+i).textContent=' ❌ Chưa đúng'});
+T=setInterval(()=>{$('#et').textContent=--tm;if(tm<=0){clearInterval(T);$$('.door input,.door .btn').forEach(x=>x.disabled=true);$('#et').textContent='Hết giờ!'}},1000)}
+function gCw(d){const W=[["Định luật về lưu lượng chất lưu qua ống trụ \\(Q\\sim r^4\\)","Poiseuille"],["Định luật cho \\(I_2=I_1\\cos^2\\alpha\\) về phân cực ánh sáng","Malus"],["Hiệu ứng photon truyền một phần năng lượng cho electron lớp ngoài cùng","Compton"],["Đơn vị SI của độ phóng xạ (1 phân rã/s)","Becquerel"],["Đơn vị của độ tụ thấu kính (viết là D)","Điốp"],["Sắc tố của tế bào hình que","Rodopsin"],["Gel dùng trong điện di DNA/RNA","Agarose"],["Đơn vị của liều tương đương và liều hiệu dụng","Sievert"]];let tm=300;
+open(`<h2>🔤 Physics Crossword</h2>${d==2?'<div class="stat">⏱ <b id="ct">300</b>s</div>':''}<div id="cwl">${W.map((w,i)=>`<div class="cw" data-i="${i}"><p><b>${i+1}.</b> ${w[0]}</p><span>${[...nm(w[1])].map((c,j)=>`<input class="cell" maxlength="1" data-j="${j}" ${d==0&&j==0?`value="${c}" disabled`:''}>`).join('')}</span></div>`).join('')}</div><p class="stat" id="cs"></p>`,1);
+const chk=()=>{let ok=0;$$('.cw').forEach(r=>{const w=nm(W[+r.dataset.i][1]),cs=[...r.querySelectorAll('.cell')],v=cs.map(x=>x.value.toLowerCase()).join('');const g=v==w;cs.forEach(x=>x.classList.toggle('ok',g));if(g)ok++});$('#cs').innerHTML=`Đã đúng: <b>${ok}</b>/${W.length}`;if(ok==W.length){clearInterval(T);confetti()}};
+$$('.cell').forEach(c=>{c.oninput=()=>{if(c.value){const n=c.nextElementSibling;if(n&&!n.disabled)n.focus()}chk()}});if(d==2)T=setInterval(()=>{$('#ct').textContent=--tm;if(tm<=0){clearInterval(T);$$('.cell').forEach(x=>x.disabled=true)}},1000);chk()}
+/* chatbot */
+const chat=$('#chat'),cm=$('#cm');let hist=[],sm;
+$('#fab').onclick=()=>chat.classList.toggle('on');$('#openchat').onclick=()=>chat.classList.add('on');
+const fmt=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
+const SYS=`Bạn là "GenZ Physics Bro", trợ giảng Vật lý đại cương & lý sinh cho sinh viên Y khoa. Trả lời bằng tiếng Việt, thân thiện, dí dỏm, tiếng lóng GenZ vừa phải.
+BẮT BUỘC theo 2 bước:
+**Bước 1 (kiểu đời thường):** giải thích bản chất bằng ví dụ thực tế hoặc tiếng lóng vui, 2-4 câu.
+**Bước 2 (học thuật):** định nghĩa chính xác và công thức liên quan, dựa vào TÀI LIỆU bên dưới; công thức viết bằng LaTeX trong \\( ... \\). Nếu câu hỏi ngoài tài liệu, nói rõ "ngoài tài liệu lớp" rồi trả lời thận trọng. Không bịa số liệu. Tối đa khoảng 200 từ.
+TÀI LIỆU: `+KB;
+$('#cfm').onsubmit=async e=>{e.preventDefault();const q=$('#ci').value.trim();if(!q)return;$('#ci').value='';cm.insertAdjacentHTML('beforeend',`<div class="mg u">${fmt(q)}</div><div class="mg a" id="cur">Đang nghĩ… 🤔</div>`);cm.scrollTop=1e9;const el=$('#cur');el.removeAttribute('id');
+try{if(!sm&&window.claude&&claude.use)sm=await claude.use('sample');if(!sm)throw 0;const inp=SYS+'\n\nLỊCH SỬ:\n'+hist.slice(-4).map(h=>h[0]+': '+h[1]).join('\n')+'\n\nSinh viên hỏi: '+q;const r=await sm(inp,{modelTier:'quick',cache:false,onText:({text})=>{el.innerHTML=fmt(text);cm.scrollTop=1e9}});el.innerHTML=fmt(r.text);hist.push(['SV',q],['Bro',r.text]);tx(el)}catch(err){const k=nm(q),m=$$('.acc').find(a=>nm(a.textContent).includes(k.slice(0,12)));el.innerHTML='Bro chưa kết nối được AI trong bản xem này 😅'+(m?`<br>Nhưng mục <b>${m.querySelector('summary').textContent.slice(2)}</b> trong tab Lý thuyết có nội dung liên quan đó!`:' Bạn thử tìm từ khóa ở tab Lý thuyết nhé!')}cm.scrollTop=1e9};
+</script>
+<script>(()=>{
+const M=String.raw;let R=Math.random;
+const pick=a=>a[R()*a.length|0],f=(x,d=2)=>String(+(+x).toFixed(d)).replace('.',','),
+shf=a=>{a=[...a];for(let i=a.length;i>1;){const j=R()*i--|0;[a[i],a[j]]=[a[j],a[i]]}return a},
+seeded=s=>()=>(s=(s*1664525+1013904223)>>>0)/4294967296;
+const S=(w,h,b)=>`<svg viewBox="0 0 ${w} ${h}" fill="none" stroke="#1c2745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${b}</svg>`;
+const figDepth=(h,v)=>S(220,130,`<rect x="20" y="40" width="130" height="80" fill="#cfe8ff"/><circle cx="85" cy="108" r="7" fill="#9a8c7a"/><circle cx="85" cy="${40+80*.85*(v/h)}" r="7" stroke="#c62828" stroke-dasharray="3 3"/><text x="82" y="22" font-size="22" stroke="none">👁</text><path d="M165 40v80M160 44h10M160 116h10" /><text x="175" y="84" stroke="none">h = ${f(h)} m</text><text x="26" y="58" stroke="none" fill="#c62828">ảnh ảo h' = ${f(v)}</text>`);
+const figLever=()=>S(240,110,`<path d="M108 98l14-32 14 32z" fill="#ffe066"/><rect x="28" y="56" width="190" height="9" rx="3" fill="#fff" transform="rotate(-5 122 60)"/><path d="M60 20v32M54 46l6 8 6-8" stroke="#c62828"/><path d="M185 90v-24M179 72l6-8 6 8" stroke="#15803d"/><text x="66" y="24" stroke="none">P (trọng lượng)</text><text x="150" y="104" stroke="none">F (cơ)</text>`);
+const figDecay=k=>S(220,110,Array.from({length:k+1},(_,i)=>`<rect x="${14+i*40}" y="${96-80/2**i}" width="30" height="${80/2**i}" fill="${i?'#ffe9a8':'#bcd4ff'}"/><text x="${14+i*40}" y="108" stroke="none" font-size="14">${i}T</text>`).join(''));
+function mk(q,val,u,bad,steps,fig,tip,d=2){const fm=v=>`\\(${f(v,d)}${u?'\\,'+u:''}\\)`,seen=new Set([f(val,d)]);let o=[val];
+[...bad,val*1.5,val*2,val*.5,val+1].forEach(b=>{const k=f(b,d);if(o.length<4&&isFinite(b)&&!seen.has(k)){seen.add(k);o.push(b)}});
+o=shf(o.map((v,i)=>({v,i})));return{q,opts:o.map(x=>fm(x.v)),ans:o.findIndex(x=>x.i==0),steps,fig,tip,val,u,d}}
+const G=[
+()=>{const h=pick([.8,1.2,1.6,2.4,3]),v=h*.75;return mk(M`Nhìn xuống đáy bể nước sâu \(${f(h)}\,m\) theo phương gần vuông góc, nước có \(n=\frac43\). Mắt thấy đáy ở độ sâu ảo \(h'\) bằng:`,v,'m',[h*4/3,h,h/2,v*.75],[M`Nhìn gần vuông góc thì \(h'=\frac{h}{n}\): tia sáng đi từ nước (chiết quang hơn) ra không khí nên bị bẻ ra xa pháp tuyến, đáy trông <b>nông hơn</b> thật.`,M`Thay số: \(h'=\frac{${f(h)}}{4/3}=${f(h)}\times\frac34\).`,M`Kết quả: \(h'=${f(v)}\,m\).`],figDepth(h,v),`Bẫy: nếu nhân với \\(n\\) thay vì chia thì sẽ ra ${f(h*4/3)} m. Độ sâu ảo luôn NHỎ hơn độ sâu thật.`)},
+()=>{const a=pick([30,45,60]),c=Math.cos(a*Math.PI/180)**2,v=c/2;return mk(M`Chùm sáng tự nhiên cường độ \(I_0\) đi qua kính phân cực rồi kính phân tích lệch nhau góc \(\alpha=${a}^{\circ}\) (không hấp thụ). Tỉ số \(\frac{I_2}{I_0}\) bằng:`,v,'',[c,Math.cos(a*Math.PI/180)/2,.5,c/4],[M`Ánh sáng tự nhiên qua kính phân cực thứ nhất luôn giảm một nửa: \(I_1=\frac{I_0}{2}\).`,M`Định luật Malus: \(I_2=I_1\cos^2\alpha\).`,M`\(\frac{I_2}{I_0}=\frac12\cos^2${a}^{\circ}=\frac12\times${f(c,3)}=${f(v,3)}\).`],0,`Bẫy: quên hệ số \\(\\frac12\\) ở kính đầu tiên → ${f(c,3)}.`,3)},
+()=>{const T=pick([5,6,8,12]),k=pick([2,3,4]),H=pick([20,40,80]),v=H/2**k;return mk(M`Chất phóng xạ có chu kỳ bán rã \(T=${T}\) ngày, độ phóng xạ ban đầu \(${H}\,mCi\). Sau \(${T*k}\) ngày độ phóng xạ còn lại:`,v,'mCi',[H/k,H/2**(k-1),H/2**(k+1),H/(2*k)],[M`Tính số chu kỳ: \(\frac{t}{T}=\frac{${T*k}}{${T}}=${k}\).`,M`Áp dụng \(H=H_0\,2^{-t/T}\) (mỗi chu kỳ giảm một nửa).`,M`\(H=${H}\times2^{-${k}}=\frac{${H}}{${2**k}}=${f(v)}\,mCi\).`],figDecay(k),'Bẫy: chia cho số chu kỳ \\(k\\) thay vì chia cho \\(2^k\\).')},
+()=>{const m=pick([50,60,70,80]),LP=pick([8,10,12]),LF=pick([12,15,20]),P=m*10,v=P*LP/LF;return mk(M`Người nặng \(${m}\,kg\) kiễng chân bằng một chân (đòn bẩy loại 2): cánh tay đòn trọng lực \(L_P=${LP}\,cm\), của lực cơ gót \(L_F=${LF}\,cm\), \(g=10\,m/s^2\). Lực co cơ \(F\) là:`,v,'N',[P*LF/LP,P,P*(LP+LF)/LF,v/2],[M`Trọng lượng đè lên chân: \(P=mg=${m}\times10=${P}\,N\).`,M`Cân bằng momen quanh điểm tựa: \(F\cdot L_F=P\cdot L_P\).`,M`\(F=\frac{P\,L_P}{L_F}=\frac{${P}\times${LP}}{${LF}}=${f(v)}\,N\).`],figLever(),'Bẫy: đảo tỉ số \\(L_P/L_F\\) → ' +f(P*LF/LP)+' N. Cánh tay đòn càng dài thì lực cần càng nhỏ.')},
+()=>{const d1=pick([4,6,8]),d2=pick([2,3]),v1=pick([.5,.6,1,1.5]),v=v1*(d1/d2)**2;return mk(M`Ống nước thu hẹp từ \(d_1=${d1}\,cm\) xuống \(d_2=${d2}\,cm\), vận tốc ở chỗ rộng \(v_1=${f(v1)}\,m/s\). Vận tốc \(v_2\) ở chỗ hẹp:`,v,'m/s',[v1*d1/d2,v1*(d2/d1)**2,v1*(d1/d2)**3,v1*d1*d2],[M`Phương trình liên tục: \(S_1v_1=S_2v_2\) với \(S=\frac{\pi d^2}{4}\).`,M`\(\frac{S_1}{S_2}=\left(\frac{d_1}{d_2}\right)^2=\left(\frac{${d1}}{${d2}}\right)^2=${f((d1/d2)**2)}\).`,M`\(v_2=v_1\times${f((d1/d2)**2)}=${f(v)}\,m/s\).`],0,'Bẫy: diện tích tỉ lệ với bình phương đường kính, đừng dùng tỉ số đường kính trực tiếp.')},
+()=>{const r1=pick([4,5,6]),r2=pick([2,3]),v=(r1/r2)**4;return mk(M`Động mạch bán kính \(r_1=${r1}\,mm\) bị hẹp còn \(r_2=${r2}\,mm\) (cùng lưu lượng \(Q\), cùng chiều dài \(L\)). Tỉ số \(\frac{\Delta p_2}{\Delta p_1}\):`,v,'',[(r1/r2)**2,r1/r2,(r1/r2)**3,(r2/r1)**4],[M`Poiseuille: \(Q=\frac{\pi r^4\Delta p}{8\eta L}\Rightarrow\Delta p\propto\frac1{r^4}\).`,M`\(\frac{\Delta p_2}{\Delta p_1}=\left(\frac{r_1}{r_2}\right)^4=\left(\frac{${r1}}{${r2}}\right)^4\).`,M`\(=${f(v)}\): hẹp chút xíu nhưng áp suất tăng rất mạnh.`])},
+()=>{const o=pick([50,80,100,125,200]),v=-100/o;return mk(M`Người cận thị có điểm cực viễn cách mắt \(${o}\,cm\). Để nhìn xa như mắt thường cần đeo kính có độ tụ:`,v,'D',[-v,v/2,-o/100,v*2],[M`Kính cận là thấu kính phân kỳ, ảnh của vật ở vô cực phải hiện ở điểm cực viễn: \(f=-OC_v\).`,M`\(D=\frac1f=-\frac{1}{OC_v}\) với \(OC_v\) đổi ra mét: \(${o}\,cm=${f(o/100)}\,m\).`,M`\(D=-\frac1{${f(o/100)}}=${f(v)}\,D\).`],0,'Nhớ đổi cm → m trước khi thay số, và kính cận luôn có độ tụ ÂM.')},
+()=>{const F=pick([8,12,18,24,36]),k=pick([2,3,4]),v=F/k**2;return mk(M`Hai điện tích điểm đặt cách nhau \(r\) hút nhau lực \(${F}\,N\). Tăng khoảng cách lên \(${k}\) lần (môi trường không đổi), lực tương tác là:`,v,'N',[F/k,F*k**2,F*k,F/2],[M`Định luật Coulomb: \(F=k\frac{|q_1q_2|}{\epsilon r^2}\Rightarrow F\propto\frac1{r^2}\).`,M`\(\frac{F'}{F}=\left(\frac{r}{r'}\right)^2=\frac1{${k**2}}\).`,M`\(F'=\frac{${F}}{${k**2}}=${f(v)}\,N\).`])},
+()=>{const n=pick([1.5,1.6,1.8,2]),v=Math.asin(1/n)*180/Math.PI;return mk(M`Ánh sáng đi từ thủy tinh \(n_1=${f(n)}\) ra không khí \(n_2=1\). Góc giới hạn phản xạ toàn phần \(i_{gh}\) là:`,v,'^{\\circ}',[90-v,Math.atan(1/n)*180/Math.PI,Math.asin(1/n**2)*180/Math.PI,v/2],[M`Phản xạ toàn phần xảy ra khi \(n_1>n_2\) và \(i\ge i_{gh}\), với \(\sin i_{gh}=\frac{n_2}{n_1}\).`,M`\(\sin i_{gh}=\frac{1}{${f(n)}}=${f(1/n,3)}\).`,M`\(i_{gh}=\arcsin(${f(1/n,3)})\approx${f(v,1)}^{\circ}\).`],0,'Ứng dụng y học: sợi quang nội soi hoạt động nhờ chính hiện tượng này.',1)},
+()=>{const D=pick([.5,1,2]),v=100*10**-D;return mk(M`Dung dịch có mật độ quang \(D=${D}\). Theo Bouguer–Lambert–Beer, phần trăm ánh sáng truyền qua \(\frac{I}{I_0}\times100\%\) là:`,v,'\\%',[D*10,100*Math.exp(-D),100*(1-10**-D),100/D],[M`Mật độ quang: \(D=\lg\frac{I_0}{I}\Rightarrow\frac{I}{I_0}=10^{-D}\) (logarit cơ số 10, không phải \(e\)).`,M`\(\frac{I}{I_0}=10^{-${D}}=${f(10**-D,4)}\).`,M`Phần trăm truyền qua: \(${f(v,1)}\%\).`],0,'Bẫy: dùng \\(e^{-D}\\) thay vì \\(10^{-D}\\).',1)}];
+const build=n=>{const o=[];while(o.length<n)shf(G).forEach(g=>o.length<n&&o.push(g()));return o},
+seedBuild=(s,n)=>{const old=R;R=seeded(s);const o=build(n);R=old;return o};
+const ez=()=>$('#ez'),tx2=()=>tx(ez());
+const best=()=>{try{return JSON.parse(localStorage.nbBest||'{}')}catch(e){return{}}},
+saveBest=(k,v)=>{try{const b=best();if(!(b[k]>=v)){b[k]=v;localStorage.nbBest=JSON.stringify(b)}}catch(e){}};
+const stepsH=q=>`<div class="steps"><b>✏️ Lời giải từng bước</b><ol>${q.steps.map(s=>`<li>${s}</li>`).join('')}</ol>${q.tip?`<p class="tipx">⚠ ${q.tip}</p>`:''}${q.fig?`<div class="fig">${q.fig}</div>`:''}</div>`;
+let XT;const mmss=s=>String(s/60|0).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function hub(){clearInterval(XT);const b=best(),c=(k,i,t,p,go)=>`<div class="glass hov cta" data-x="${go}"><i>${i}</i><h3>${t}</h3><p>${p}</p>${b[go]!=null?`<p class="good">🏅 Điểm cao nhất: ${b[go]}/10</p>`:''}</div>`;
+ez().innerHTML=`<div style="max-width:1000px;margin:0 auto"><h2 class="pt">Phòng thi 📝</h2><p class="sub">Đề mới được sinh liên tục: mỗi câu có lời giải từng bước, mẹo và bẫy thường gặp.</p><div class="grid">${c(0,'📄','Đề gốc từ tài liệu','10 câu trích từ phần Tips &amp; đáp án giữa kỳ. Chấm ngay từng câu.','orig')+c(0,'🗓','Đề của hôm nay','12 câu mới mỗi ngày, cả lớp cùng đề. Chấm ngay + giải chi tiết.','daily')+c(0,'🎲','Đề ngẫu nhiên','10 câu mới tinh, số liệu đổi mỗi lần. Luyện vô hạn.','rand')+c(0,'⏱','Thi thử 10 phút','10 câu, đồng hồ đếm ngược, nộp bài rồi xem đáp án.','mini')+c(0,'🖥','Mô phỏng cuối kỳ','40 câu trắc nghiệm · 45 phút, giống đề thi trên máy.','final')+c(0,'✍️','Tự luận giữa kỳ','3 bài: viết lời giải ra “giấy nháp”, đối chiếu lời giải mẫu.','essay')}</div></div>`;
+$$('[data-x]').forEach(e=>e.onclick=()=>go(e.dataset.x));tx2()}
+function go(k){const day=+new Date().toISOString().slice(0,10).replace(/-/g,'');
+if(k=='orig')return mcq({k,title:'Đề gốc',qs:EX.map(e=>({q:e[0],opts:e[1],ans:e[2],steps:[e[3]]})),instant:1});
+if(k=='daily')return mcq({k,title:'Đề hôm nay',qs:seedBuild(day,12),instant:1});
+if(k=='rand')return mcq({k,title:'Đề ngẫu nhiên',qs:build(10),instant:1});
+if(k=='mini')return mcq({k,title:'Thi thử 10 phút',qs:build(10),time:600});
+if(k=='final')return mcq({k,title:'Mô phỏng cuối kỳ',qs:build(40),time:2700});
+essay()}
+function mcq(o){const qs=o.qs,n=qs.length,A=Array(n).fill(-1);let i=0,left=o.time||0;clearInterval(XT);
+const hd=()=>`<div class="stat"><b>${o.title}</b> · Câu <b>${i+1}</b>/${n}${o.instant?` · Điểm: <b>${qs.reduce((s,q,j)=>s+(A[j]==q.ans),0)}</b>`:` · <span class="tm" id="tm">${mmss(left)}</span>`}</div><div class="pbar"><i style="width:${i/n*100}%"></i></div>`;
+function show(){const q=qs[i],a=A[i],lock=o.instant&&a>=0;
+ez().innerHTML=hd()+`<div class="glass q"><h3>${q.q}</h3>${q.opts.map((t,j)=>`<button class="opt ${lock?(j==q.ans?'ok':j==a?'no':''):a==j?'sel':''}" data-i="${j}" ${lock?'disabled':''}>${String.fromCharCode(65+j)}. ${t}</button>`).join('')}${lock?stepsH(q):''}<div class="row">${!o.instant&&i>0?'<button class="btn gh" id="pv">‹ Trước</button>':''}${(o.instant&&!lock)?'':`<button class="btn" id="nx">${i<n-1?'Câu tiếp ›':(o.instant?'Nộp bài 🎉':'Nộp bài')}</button>`}${!o.instant&&i<n-1?'':''}</div></div>${o.instant?'':`<div class="qn">${qs.map((_,j)=>`<button class="${A[j]>=0?'dn':''} ${j==i?'cu':''}" data-j="${j}">${j+1}</button>`).join('')}</div>`}`;
+$$('.opt').forEach(b=>b.onclick=()=>{A[i]=+b.dataset.i;show()});
+const nx=$('#nx');if(nx)nx.onclick=()=>{if(i<n-1){i++;show()}else if(o.instant||confirm('Nộp bài? Còn '+A.filter(x=>x<0).length+' câu chưa làm.'))fin()};
+const pv=$('#pv');if(pv)pv.onclick=()=>{i--;show()};$$('.qn button').forEach(b=>b.onclick=()=>{i=+b.dataset.j;show()});tx2()}
+function fin(){clearInterval(XT);const sc=qs.reduce((s,q,j)=>s+(A[j]==q.ans),0),p=(sc/n*10).toFixed(1);saveBest(o.k,+p);if(sc/n>=.8)confetti();
+ez().innerHTML=`<div class="glass q" style="text-align:center"><h2 class="pt">Kết quả 🎉</h2><p class="hd" style="font-size:60px">${sc}/${n}</p><p class="sub">Thang 10: <b>${p}</b> — ${p>=8?'Đỉnh luôn!':p>=5?'Khá ổn, xem lại các câu sai bên dưới nhé.':'Cố lên, đọc lời giải từng bước rồi thử đề mới!'}</p><div class="row"><button class="btn" id="ag">Làm đề khác</button><button class="btn gh" id="hb">Về phòng thi</button></div></div><h3 style="margin:20px 0 4px;font-size:30px">Xem lại &amp; lời giải chi tiết</h3>${qs.map((q,j)=>`<details class="glass q rv" ${A[j]!=q.ans?'open':''}><summary>Câu ${j+1} ${A[j]==q.ans?'<span class="good">✓ đúng</span>':'<span class="bad">✗ '+(A[j]<0?'bỏ trống':'sai')+'</span>'}</summary><h3>${q.q}</h3><p>Bạn chọn: ${A[j]<0?'—':q.opts[A[j]]} · Đáp án đúng: <b>${q.opts[q.ans]}</b></p>${stepsH(q)}</details>`).join('')}`;
+$('#ag').onclick=()=>go(o.k=='daily'?'rand':o.k);$('#hb').onclick=hub;scrollTo(0,0);tx2()}
+if(o.time)XT=setInterval(()=>{left--;const t=$('#tm');if(t){t.textContent=mmss(left);t.classList.toggle('low',left<60)}if(left<=0){alert('Hết giờ! Bài được nộp tự động.');fin()}},1000);show()}
+function essay(){const qs=shf(G).slice(0,3).map(g=>g());ez().innerHTML=`<div class="es" style="max-width:820px;margin:0 auto"><h2 class="pt">Tự luận giữa kỳ ✍️</h2><p class="sub">Viết lời giải vào vở, điền đáp số, rồi đối chiếu lời giải mẫu.</p>${qs.map((q,j)=>`<div class="glass q" style="margin:16px 0"><h3>Bài ${j+1}. ${q.q.replace(/Tỉ số|bằng:|là:/g,m=>m)}</h3><textarea placeholder="Viết công thức → thay số → kết quả..."></textarea>Đáp số: <input type="text" id="a${j}" placeholder="vd: 2,4"> <button class="btn" data-k="${j}">Kiểm tra &amp; xem lời giải</button><div id="r${j}"></div><p class="sub" style="margin-top:8px">Tự chấm: ☐ có công thức gốc · ☐ thay số rõ ràng · ☐ có đơn vị</p></div>`).join('')}<div class="row"><button class="btn gh" id="hb">Về phòng thi</button><button class="btn" id="nw">Đề tự luận khác</button></div></div>`;
+$$('[data-k]').forEach(b=>b.onclick=()=>{const j=+b.dataset.k,q=qs[j],v=parseFloat($('#a'+j).value.replace(',','.')),ok=Math.abs(v-q.val)<=Math.abs(q.val)*.02+1e-9;$('#r'+j).innerHTML=`<p class="${ok?'good':'bad'}" style="margin-top:10px">${ok?'✓ Đáp số đúng!':'✗ Chưa khớp.'} Đáp số mẫu: <b>${q.opts[q.ans]}</b></p>`+stepsH(q);tx($('#r'+j))});
+$('#hb').onclick=hub;$('#nw').onclick=essay;tx2()}
+window.examStart=hub;hub();
+/* trang trí */
+$('nav b').textContent='📓 Sổ tay Vật lý';
+const dd=D=document;dd.querySelector('.hero .chips').insertAdjacentHTML('afterend',`<div class="doodles">${S(900,190,`<g transform="translate(20,10)"><path d="M120 170l24-60 24 60z" fill="#ffe066"/><g transform="rotate(-9 144 106)"><rect x="20" y="100" width="250" height="12" rx="4" fill="#fff"/><path d="M40 112l-20 34h50zM250 112l-20 34h50z" fill="#dbe7ff"/></g><circle cx="46" cy="132" r="9" fill="#c62828"/><text x="86" y="186" stroke="none">đòn bẩy · cân</text></g><g transform="translate(330,6)"><rect x="40" y="10" width="70" height="30" rx="8" fill="#dbe7ff"/><path d="M75 40L40 140M75 40l35 100" stroke-dasharray="5 6" stroke="#c62828"/><rect x="30" y="140" width="90" height="24" rx="6" fill="#dbe7ff"/><path d="M60 90h30M58 84a5 5 0 1 0 0 12M92 84a5 5 0 1 1 0 12" fill="#fff"/><text x="40" y="184" stroke="none">máy X-quang</text></g><g transform="translate(560,10)"><path d="M20 120L70 30l50 90z" fill="#e8f3ff"/><path d="M-30 90L50 80M90 70l90-20M92 78l90-6M95 86l90 8M98 94l88 24" stroke="#c62828"/><path d="M93 90l88 24" stroke="#2457c5"/><text x="30" y="150" stroke="none">lăng kính</text></g><g transform="translate(790,86)"><circle r="9" fill="#ffe066"/><ellipse rx="52" ry="19"/><ellipse rx="52" ry="19" transform="rotate(60)"/><ellipse rx="52" ry="19" transform="rotate(120)"/><circle cx="52" r="5" fill="#2457c5"/><circle cx="-26" cy="45" r="5" fill="#c62828"/><text x="-34" y="92" stroke="none">nguyên tử</text></g>`)}</div>`);
+const cp=dd.querySelector('[data-go=exam] p');if(cp)cp.textContent='Đề gốc, đề mới mỗi ngày, thi thử bấm giờ 40 câu và tự luận — đều có lời giải từng bước.';
+const L=[['Bending Light','Khúc xạ & phản xạ toàn phần (Mục 1)','https://phet.colorado.edu/vi/simulations/bending-light'],['Photoelectric Effect','Hiệu ứng quang điện','https://phet.colorado.edu/vi/simulations/photoelectric'],['Molecules and Light','Phân tử hấp thụ ánh sáng thế nào','https://phet.colorado.edu/vi/simulations/molecules-and-light'],['Beta Decay','Phân rã β (Hạt nhân)','https://phet.colorado.edu/vi/simulations/beta-decay'],['Alpha Decay','Phân rã α (Hạt nhân)','https://phet.colorado.edu/vi/simulations/alpha-decay'],['LabXchange · Light','Mô phỏng &amp; hoạt động tương tác về ánh sáng','https://www.labxchange.org/topic/physics-high-light'],['Tất cả mô phỏng PhET','Bộ lọc Vật lý · HTML5','https://phet.colorado.edu/vi/simulations/filter?subjects=physics&type=html']];
+$('#gg').insertAdjacentHTML('afterend',`<h2 class="pt" style="margin-top:36px">Phòng thí nghiệm ảo 🔬</h2><p class="sub">Mô phỏng ngoài, mở ở tab mới để vừa chơi vừa đối chiếu lý thuyết.</p><div class="grid">${L.map(l=>`<a class="sn" target="_blank" rel="noopener" href="${l[2]}"><b>${l[0]}</b>${l[1]}</a>`).join('')}</div>`);
+})();
+</script></body></html>
